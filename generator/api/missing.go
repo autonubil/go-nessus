@@ -1,0 +1,24 @@
+package api
+
+import ()
+
+type N200Type string
+type N200Status string
+type N200PermissionsType string
+type N200AgentsStatus string
+type N200ValuesAccessControlCurrentDomainPermissionsType string
+type N200AccessControlCurrentDomainPermissionsType string
+type N200AclsType string
+type N200AccessGroupsAccessGroupType string
+type N200PrincipalsType string
+type N200AccessGroupType string
+type N200AccessGroupsPrincipalsType string
+type N200ScheduleRrulesFreq int
+type N200ValuesAccessControlAllUsersPermissions []string
+type N200ValuesAccessControlCurrentUserPermissions []string
+type N200AccessControlCurrentUserPermissions []string
+type N200ValuesAccessControlDefinedDomainPermissions []string
+type N200AccessControlAllUsersPermissions []string
+type N200AccessControlDefinedDomainPermissions []string
+type N200AccessGroupsPrincipalsPermissions []string
+type N200PrincipalsPermissions []string

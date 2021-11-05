@@ -1,0 +1,18 @@
+{
+    "cSpell.words": [
+        "authd",
+        "cfga",
+        "db",
+        "dbsync",
+        "dump",
+        "execd",
+        "header",
+        "mq"
+    ],
+    "go.testEnvVars": {
+        "NESSUS_URL": "https://nessus.opserve-exanio-test.exanio.net/",
+        "NESSUS_USER": "nessus",
+        "NESSUS_PASSWORD": "bWUdVoUiDx3IrT13mSw1Pqrlj7oQVGDM",
+        "NESSUS_INSECURE": true
+    },
+}
