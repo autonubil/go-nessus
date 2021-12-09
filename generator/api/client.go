@@ -19179,7 +19179,7 @@ type PoliciesListResponse struct {
 		OwnerId *string `json:"owner_id,omitempty"`
 
 		// The shared status of the policy (`1` if shared with users other than owner, `0` if not shared).
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The UUID for the Tenable-provided template used to create the policy.
 		TemplateUuid *string `json:"template_uuid,omitempty"`
@@ -19246,7 +19246,7 @@ type PoliciesImportResponse struct {
 		Owner                *string `json:"owner,omitempty"`
 		OwnerId              *int    `json:"owner_id,omitempty"`
 		Private              *int    `json:"private,omitempty"`
-		Shared               *int    `json:"shared,omitempty"`
+		Shared               *bool   `json:"shared,omitempty"`
 		TemplateUuid         *string `json:"template_uuid,omitempty"`
 		UserPermissions      *int    `json:"user_permissions,omitempty"`
 	}
@@ -19428,7 +19428,7 @@ type ScannerGroupsListResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19501,7 +19501,7 @@ type ScannerGroupsCreateResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19596,7 +19596,7 @@ type ScannerGroupsDetailsResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19669,7 +19669,7 @@ type ScannerGroupsEditResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -20941,7 +20941,7 @@ type AgentGroupsListResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -20999,7 +20999,7 @@ type AgentGroupsCreateResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -21180,7 +21180,7 @@ type AgentGroupsDetailsResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -22634,7 +22634,7 @@ type ScansDetailsResponse struct {
 			HostId *int `json:"host_id,omitempty"`
 
 			// The index for the host.
-			HostIndex *string `json:"host_index,omitempty"`
+			HostIndex *int `json:"host_index,omitempty"`
 
 			// The name of the host.
 			Hostname *string `json:"hostname,omitempty"`
@@ -22763,7 +22763,7 @@ type ScansDetailsResponse struct {
 			HostId *int `json:"host_id,omitempty"`
 
 			// The index for the host.
-			HostIndex *string `json:"host_index,omitempty"`
+			HostIndex *int `json:"host_index,omitempty"`
 
 			// The name of the host.
 			Hostname *string `json:"hostname,omitempty"`
@@ -22870,13 +22870,13 @@ type ScansDetailsResponse struct {
 			ScanType *string `json:"scan_type,omitempty"`
 
 			// The scan's end time, if the scan is imported.
-			ScannerEnd *string `json:"scanner_end,omitempty"`
+			ScannerEnd *int `json:"scanner_end,omitempty"`
 
 			// The name of the scanner configured to run the scan.
 			ScannerName *string `json:"scanner_name,omitempty"`
 
 			// The scan's start time, if the scan is imported.
-			ScannerStart *string `json:"scanner_start,omitempty"`
+			ScannerStart *int `json:"scanner_start,omitempty"`
 
 			// The UUID for a specific instance in the scan schedule.
 			ScheduleUuid *string `json:"schedule_uuid,omitempty"`
@@ -24758,7 +24758,7 @@ type TargetGroupsListResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -24834,7 +24834,7 @@ type TargetGroupsCreateResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -24932,7 +24932,7 @@ type TargetGroupsDetailsResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -25008,7 +25008,7 @@ type TargetGroupsEditResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -34124,7 +34124,7 @@ func ParsePoliciesListResponse(rsp *http.Response) (*PoliciesListResponse, error
 			OwnerId *string `json:"owner_id,omitempty"`
 
 			// The shared status of the policy (`1` if shared with users other than owner, `0` if not shared).
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The UUID for the Tenable-provided template used to create the policy.
 			TemplateUuid *string `json:"template_uuid,omitempty"`
@@ -34199,7 +34199,7 @@ func ParsePoliciesImportResponse(rsp *http.Response) (*PoliciesImportResponse, e
 			Owner                *string `json:"owner,omitempty"`
 			OwnerId              *int    `json:"owner_id,omitempty"`
 			Private              *int    `json:"private,omitempty"`
-			Shared               *int    `json:"shared,omitempty"`
+			Shared               *bool   `json:"shared,omitempty"`
 			TemplateUuid         *string `json:"template_uuid,omitempty"`
 			UserPermissions      *int    `json:"user_permissions,omitempty"`
 		}
@@ -34405,7 +34405,7 @@ func ParseScannerGroupsListResponse(rsp *http.Response) (*ScannerGroupsListRespo
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34482,7 +34482,7 @@ func ParseScannerGroupsCreateResponse(rsp *http.Response) (*ScannerGroupsCreateR
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34585,7 +34585,7 @@ func ParseScannerGroupsDetailsResponse(rsp *http.Response) (*ScannerGroupsDetail
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34662,7 +34662,7 @@ func ParseScannerGroupsEditResponse(rsp *http.Response) (*ScannerGroupsEditRespo
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34930,7 +34930,7 @@ func ParseScannerGroupsListScannersResponse(rsp *http.Response) (*ScannerGroupsL
 			Type *string `json:"type,omitempty"`
 
 			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
+			UiBuild *string `json:"ui_build,omitempty"`
 
 			// The backend version of Nessus that is running on the scanner.
 			UiVersion *string `json:"ui_version,omitempty"`
@@ -35172,7 +35172,7 @@ func ParseScannersListResponse(rsp *http.Response) (*ScannersListResponse, error
 			Type *string `json:"type,omitempty"`
 
 			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
+			UiBuild *string `json:"ui_build,omitempty"`
 
 			// The backend version of Nessus that is running on the scanner.
 			UiVersion *string `json:"ui_version,omitempty"`
@@ -35892,7 +35892,7 @@ func ParseScannersDetailsResponse(rsp *http.Response) (*ScannersDetailsResponse,
 			Type *string `json:"type,omitempty"`
 
 			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
+			UiBuild *string `json:"ui_build,omitempty"`
 
 			// The backend version of Nessus that is running on the scanner.
 			UiVersion *string `json:"ui_version,omitempty"`
@@ -36022,7 +36022,7 @@ func ParseAgentGroupsListResponse(rsp *http.Response) (*AgentGroupsListResponse,
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -36084,7 +36084,7 @@ func ParseAgentGroupsCreateResponse(rsp *http.Response) (*AgentGroupsCreateRespo
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -36283,7 +36283,7 @@ func ParseAgentGroupsDetailsResponse(rsp *http.Response) (*AgentGroupsDetailsRes
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -37869,7 +37869,7 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				HostId *int `json:"host_id,omitempty"`
 
 				// The index for the host.
-				HostIndex *string `json:"host_index,omitempty"`
+				HostIndex *int `json:"host_index,omitempty"`
 
 				// The name of the host.
 				Hostname *string `json:"hostname,omitempty"`
@@ -37998,7 +37998,7 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				HostId *int `json:"host_id,omitempty"`
 
 				// The index for the host.
-				HostIndex *string `json:"host_index,omitempty"`
+				HostIndex *int `json:"host_index,omitempty"`
 
 				// The name of the host.
 				Hostname *string `json:"hostname,omitempty"`
@@ -38105,13 +38105,13 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				ScanType *string `json:"scan_type,omitempty"`
 
 				// The scan's end time, if the scan is imported.
-				ScannerEnd *string `json:"scanner_end,omitempty"`
+				ScannerEnd *int `json:"scanner_end,omitempty"`
 
 				// The name of the scanner configured to run the scan.
 				ScannerName *string `json:"scanner_name,omitempty"`
 
 				// The scan's start time, if the scan is imported.
-				ScannerStart *string `json:"scanner_start,omitempty"`
+				ScannerStart *int `json:"scanner_start,omitempty"`
 
 				// The UUID for a specific instance in the scan schedule.
 				ScheduleUuid *string `json:"schedule_uuid,omitempty"`
@@ -40197,7 +40197,7 @@ func ParseTargetGroupsListResponse(rsp *http.Response) (*TargetGroupsListRespons
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40277,7 +40277,7 @@ func ParseTargetGroupsCreateResponse(rsp *http.Response) (*TargetGroupsCreateRes
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40383,7 +40383,7 @@ func ParseTargetGroupsDetailsResponse(rsp *http.Response) (*TargetGroupsDetailsR
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40463,7 +40463,7 @@ func ParseTargetGroupsEditResponse(rsp *http.Response) (*TargetGroupsEditRespons
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`

@@ -5,14 +5,13 @@ import (
 	"testing"
 )
 
-func TestStatus(t *testing.T) {
+func TestList(t *testing.T) {
 	c, err := NewClientFromEnvironment(WithTrace(true))
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	params := ScansListParams{}
-	i, err := c.Scans.List(&params)
+	i, err := c.Folders.List()
 	if err != nil {
 		t.Error(err)
 		return

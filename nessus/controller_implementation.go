@@ -271,7 +271,7 @@ func (c *AgentGroup) sCreateWithBody(arg1 int32, arg2 string, body io.Reader, re
 	OwnerId              *string   "json:\"owner_id,omitempty\""
 	OwnerName            *string   "json:\"owner_name,omitempty\""
 	OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-	Shared               *int      "json:\"shared,omitempty\""
+	Shared               *bool     "json:\"shared,omitempty\""
 	UserPermissions      *int      "json:\"user_permissions,omitempty\""
 	Uuid                 *string   "json:\"uuid,omitempty\""
 }, error) {
@@ -285,7 +285,7 @@ func (c *AgentGroup) sCreateWithBody(arg1 int32, arg2 string, body io.Reader, re
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *int "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		Agents               *[]string "json:\"agents,omitempty\""
 		CreationDate         *int      "json:\"creation_date,omitempty\""
@@ -296,7 +296,7 @@ func (c *AgentGroup) sCreateWithBody(arg1 int32, arg2 string, body io.Reader, re
 		OwnerId              *string   "json:\"owner_id,omitempty\""
 		OwnerName            *string   "json:\"owner_name,omitempty\""
 		OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-		Shared               *int      "json:\"shared,omitempty\""
+		Shared               *bool     "json:\"shared,omitempty\""
 		UserPermissions      *int      "json:\"user_permissions,omitempty\""
 		Uuid                 *string   "json:\"uuid,omitempty\""
 	}); ok {
@@ -318,7 +318,7 @@ func (c *AgentGroup) sCreate(arg1 int32, arg2 AgentGroupsCreateJSONRequestBody, 
 	OwnerId              *string   "json:\"owner_id,omitempty\""
 	OwnerName            *string   "json:\"owner_name,omitempty\""
 	OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-	Shared               *int      "json:\"shared,omitempty\""
+	Shared               *bool     "json:\"shared,omitempty\""
 	UserPermissions      *int      "json:\"user_permissions,omitempty\""
 	Uuid                 *string   "json:\"uuid,omitempty\""
 }, error) {
@@ -332,7 +332,7 @@ func (c *AgentGroup) sCreate(arg1 int32, arg2 AgentGroupsCreateJSONRequestBody, 
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *int "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		Agents               *[]string "json:\"agents,omitempty\""
 		CreationDate         *int      "json:\"creation_date,omitempty\""
@@ -343,7 +343,7 @@ func (c *AgentGroup) sCreate(arg1 int32, arg2 AgentGroupsCreateJSONRequestBody, 
 		OwnerId              *string   "json:\"owner_id,omitempty\""
 		OwnerName            *string   "json:\"owner_name,omitempty\""
 		OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-		Shared               *int      "json:\"shared,omitempty\""
+		Shared               *bool     "json:\"shared,omitempty\""
 		UserPermissions      *int      "json:\"user_permissions,omitempty\""
 		Uuid                 *string   "json:\"uuid,omitempty\""
 	}); ok {
@@ -407,7 +407,7 @@ func (c *AgentGroup) sDetails(arg1 int32, arg2 int32, params *AgentGroupsDetails
 	OwnerId              *string   "json:\"owner_id,omitempty\""
 	OwnerName            *string   "json:\"owner_name,omitempty\""
 	OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-	Shared               *int      "json:\"shared,omitempty\""
+	Shared               *bool     "json:\"shared,omitempty\""
 	UserPermissions      *int      "json:\"user_permissions,omitempty\""
 	Uuid                 *string   "json:\"uuid,omitempty\""
 }, error) {
@@ -421,7 +421,7 @@ func (c *AgentGroup) sDetails(arg1 int32, arg2 int32, params *AgentGroupsDetails
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *int "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		Agents               *[]string "json:\"agents,omitempty\""
 		CreationDate         *int      "json:\"creation_date,omitempty\""
@@ -432,7 +432,7 @@ func (c *AgentGroup) sDetails(arg1 int32, arg2 int32, params *AgentGroupsDetails
 		OwnerId              *string   "json:\"owner_id,omitempty\""
 		OwnerName            *string   "json:\"owner_name,omitempty\""
 		OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-		Shared               *int      "json:\"shared,omitempty\""
+		Shared               *bool     "json:\"shared,omitempty\""
 		UserPermissions      *int      "json:\"user_permissions,omitempty\""
 		Uuid                 *string   "json:\"uuid,omitempty\""
 	}); ok {
@@ -454,7 +454,7 @@ func (c *AgentGroup) sList(arg1 int32, reqEditors ...RequestEditorFn) (*[]struct
 	OwnerId              *string   "json:\"owner_id,omitempty\""
 	OwnerName            *string   "json:\"owner_name,omitempty\""
 	OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-	Shared               *int      "json:\"shared,omitempty\""
+	Shared               *bool     "json:\"shared,omitempty\""
 	UserPermissions      *int      "json:\"user_permissions,omitempty\""
 	Uuid                 *string   "json:\"uuid,omitempty\""
 }, error) {
@@ -468,7 +468,7 @@ func (c *AgentGroup) sList(arg1 int32, reqEditors ...RequestEditorFn) (*[]struct
 	if err != nil {
 		return nil, err
 	}
-	// convert to *[]struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *int "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *[]struct { Agents *[]string "json:\"agents,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*[]struct {
 		Agents               *[]string "json:\"agents,omitempty\""
 		CreationDate         *int      "json:\"creation_date,omitempty\""
@@ -479,7 +479,7 @@ func (c *AgentGroup) sList(arg1 int32, reqEditors ...RequestEditorFn) (*[]struct
 		OwnerId              *string   "json:\"owner_id,omitempty\""
 		OwnerName            *string   "json:\"owner_name,omitempty\""
 		OwnerUuid            *string   "json:\"owner_uuid,omitempty\""
-		Shared               *int      "json:\"shared,omitempty\""
+		Shared               *bool     "json:\"shared,omitempty\""
 		UserPermissions      *int      "json:\"user_permissions,omitempty\""
 		Uuid                 *string   "json:\"uuid,omitempty\""
 	}); ok {
@@ -666,17 +666,19 @@ func (c *Editor) Details(arg1 EditorDetailsParamsType, arg2 int32, reqEditors ..
 }
 
 // ListTemplates calls the Editor ´s function
-func (c *Editor) ListTemplates(arg1 EditorListTemplatesParamsType, reqEditors ...RequestEditorFn) (*[]struct {
-	CloudOnly        *bool   "json:\"cloud_only,omitempty\""
-	Desc             *string "json:\"desc,omitempty\""
-	IsAgent          *bool   "json:\"is_agent,omitempty\""
-	IsWas            *bool   "json:\"is_was,omitempty\""
-	ManagerOnly      *bool   "json:\"manager_only,omitempty\""
-	Name             *string "json:\"name,omitempty\""
-	SubscriptionOnly *bool   "json:\"subscription_only,omitempty\""
-	Title            *string "json:\"title,omitempty\""
-	Unsupported      *bool   "json:\"unsupported,omitempty\""
-	Uuid             *string "json:\"uuid,omitempty\""
+func (c *Editor) ListTemplates(arg1 EditorListTemplatesParamsType, reqEditors ...RequestEditorFn) (*struct {
+	Templates []struct {
+		CloudOnly        *bool   "json:\"cloud_only,omitempty\""
+		Desc             *string "json:\"desc,omitempty\""
+		IsAgent          *bool   "json:\"is_agent,omitempty\""
+		IsWas            *bool   "json:\"is_was,omitempty\""
+		ManagerOnly      *bool   "json:\"manager_only,omitempty\""
+		Name             *string "json:\"name,omitempty\""
+		SubscriptionOnly *bool   "json:\"subscription_only,omitempty\""
+		Title            *string "json:\"title,omitempty\""
+		Unsupported      *bool   "json:\"unsupported,omitempty\""
+		Uuid             *string "json:\"uuid,omitempty\""
+	} "json:\"templates,omitempty\""
 }, error) {
 	if c.ClientInterface.(*Client).token == "" {
 		err := c.Authenticate()
@@ -689,17 +691,19 @@ func (c *Editor) ListTemplates(arg1 EditorListTemplatesParamsType, reqEditors ..
 		return nil, err
 	}
 	// convert to *[]struct { CloudOnly *bool "json:\"cloud_only,omitempty\""; Desc *string "json:\"desc,omitempty\""; IsAgent *bool "json:\"is_agent,omitempty\""; IsWas *bool "json:\"is_was,omitempty\""; ManagerOnly *bool "json:\"manager_only,omitempty\""; Name *string "json:\"name,omitempty\""; SubscriptionOnly *bool "json:\"subscription_only,omitempty\""; Title *string "json:\"title,omitempty\""; Unsupported *bool "json:\"unsupported,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
-	if i, ok := r.(*[]struct {
-		CloudOnly        *bool   "json:\"cloud_only,omitempty\""
-		Desc             *string "json:\"desc,omitempty\""
-		IsAgent          *bool   "json:\"is_agent,omitempty\""
-		IsWas            *bool   "json:\"is_was,omitempty\""
-		ManagerOnly      *bool   "json:\"manager_only,omitempty\""
-		Name             *string "json:\"name,omitempty\""
-		SubscriptionOnly *bool   "json:\"subscription_only,omitempty\""
-		Title            *string "json:\"title,omitempty\""
-		Unsupported      *bool   "json:\"unsupported,omitempty\""
-		Uuid             *string "json:\"uuid,omitempty\""
+	if i, ok := r.(*struct {
+		Templates []struct {
+			CloudOnly        *bool   "json:\"cloud_only,omitempty\""
+			Desc             *string "json:\"desc,omitempty\""
+			IsAgent          *bool   "json:\"is_agent,omitempty\""
+			IsWas            *bool   "json:\"is_was,omitempty\""
+			ManagerOnly      *bool   "json:\"manager_only,omitempty\""
+			Name             *string "json:\"name,omitempty\""
+			SubscriptionOnly *bool   "json:\"subscription_only,omitempty\""
+			Title            *string "json:\"title,omitempty\""
+			Unsupported      *bool   "json:\"unsupported,omitempty\""
+			Uuid             *string "json:\"uuid,omitempty\""
+		} "json:\"templates,omitempty\""
 	}); ok {
 		return i, nil
 	}
@@ -3746,13 +3750,15 @@ func (c *Folders) Edit(arg1 int32, arg2 FoldersEditJSONRequestBody, reqEditors .
 }
 
 // List calls the Folders ´s function
-func (c *Folders) List(reqEditors ...RequestEditorFn) (*[]struct {
-	Custom      *int    "json:\"custom,omitempty\""
-	DefaultTag  *int    "json:\"default_tag,omitempty\""
-	Id          *int    "json:\"id,omitempty\""
-	Name        *string "json:\"name,omitempty\""
-	Type        *string "json:\"type,omitempty\""
-	UnreadCount *int    "json:\"unread_count,omitempty\""
+func (c *Folders) List(reqEditors ...RequestEditorFn) (*struct {
+	Folders []struct {
+		Custom      *int    "json:\"custom,omitempty\""
+		DefaultTag  *int    "json:\"default_tag,omitempty\""
+		Id          *int    "json:\"id,omitempty\""
+		Name        *string "json:\"name,omitempty\""
+		Type        *string "json:\"type,omitempty\""
+		UnreadCount *int    "json:\"unread_count,omitempty\""
+	} "json:\"folders,omitempty\""
 }, error) {
 	if c.ClientInterface.(*Client).token == "" {
 		err := c.Authenticate()
@@ -3765,13 +3771,15 @@ func (c *Folders) List(reqEditors ...RequestEditorFn) (*[]struct {
 		return nil, err
 	}
 	// convert to *[]struct { Custom *int "json:\"custom,omitempty\""; DefaultTag *int "json:\"default_tag,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Type *string "json:\"type,omitempty\""; UnreadCount *int "json:\"unread_count,omitempty\"" }
-	if i, ok := r.(*[]struct {
-		Custom      *int    "json:\"custom,omitempty\""
-		DefaultTag  *int    "json:\"default_tag,omitempty\""
-		Id          *int    "json:\"id,omitempty\""
-		Name        *string "json:\"name,omitempty\""
-		Type        *string "json:\"type,omitempty\""
-		UnreadCount *int    "json:\"unread_count,omitempty\""
+	if i, ok := r.(*struct {
+		Folders []struct {
+			Custom      *int    "json:\"custom,omitempty\""
+			DefaultTag  *int    "json:\"default_tag,omitempty\""
+			Id          *int    "json:\"id,omitempty\""
+			Name        *string "json:\"name,omitempty\""
+			Type        *string "json:\"type,omitempty\""
+			UnreadCount *int    "json:\"unread_count,omitempty\""
+		} "json:\"folders,omitempty\""
 	}); ok {
 		return i, nil
 	}
@@ -4256,7 +4264,7 @@ func (c *Scanners) Details(arg1 int32, reqEditors ...RequestEditorFn) (*struct {
 	SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
 	Timestamp          *int    "json:\"timestamp,omitempty\""
 	Type               *string "json:\"type,omitempty\""
-	UiBuild            *int    "json:\"ui_build,omitempty\""
+	UiBuild            *string "json:\"ui_build,omitempty\""
 	UiVersion          *string "json:\"ui_version,omitempty\""
 	UserPermissions    *int    "json:\"user_permissions,omitempty\""
 	Uuid               *string "json:\"uuid,omitempty\""
@@ -4330,7 +4338,7 @@ func (c *Scanners) Details(arg1 int32, reqEditors ...RequestEditorFn) (*struct {
 		SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
 		Timestamp          *int    "json:\"timestamp,omitempty\""
 		Type               *string "json:\"type,omitempty\""
-		UiBuild            *int    "json:\"ui_build,omitempty\""
+		UiBuild            *string "json:\"ui_build,omitempty\""
 		UiVersion          *string "json:\"ui_version,omitempty\""
 		UserPermissions    *int    "json:\"user_permissions,omitempty\""
 		Uuid               *string "json:\"uuid,omitempty\""
@@ -4548,81 +4556,9 @@ func (c *Scanners) GetScans(arg1 int32, reqEditors ...RequestEditorFn) (*struct 
 }
 
 // List calls the Scanners ´s function
-func (c *Scanners) List(reqEditors ...RequestEditorFn) (*[]struct {
-	AwsUpdateInterval    *int      "json:\"aws_update_interval,omitempty\""
-	CreationDate         *int      "json:\"creation_date,omitempty\""
-	Distro               *string   "json:\"distro,omitempty\""
-	EngineVersion        *string   "json:\"engine_version,omitempty\""
-	Group                *bool     "json:\"group,omitempty\""
-	Hostname             *string   "json:\"hostname,omitempty\""
-	Id                   *int      "json:\"id,omitempty\""
-	IpAddresses          *[]string "json:\"ip_addresses,omitempty\""
-	Key                  *string   "json:\"key,omitempty\""
-	LastConnect          *string   "json:\"last_connect,omitempty\""
-	LastModificationDate *int      "json:\"last_modification_date,omitempty\""
-	License              *struct {
-		Agents *int "json:\"agents,omitempty\""
-		Apps   *struct {
-			Consec *struct {
-				ActivationCode *int    "json:\"activation_code,omitempty\""
-				ExpirationDate *int    "json:\"expiration_date,omitempty\""
-				MaxGb          *int    "json:\"max_gb,omitempty\""
-				Mode           *string "json:\"mode,omitempty\""
-				Type           *string "json:\"type,omitempty\""
-			} "json:\"consec,omitempty\""
-			Type *string "json:\"type,omitempty\""
-			Was  *struct {
-				ActivationCode *int    "json:\"activation_code,omitempty\""
-				ExpirationDate *int    "json:\"expiration_date,omitempty\""
-				Mode           *string "json:\"mode,omitempty\""
-				Type           *string "json:\"type,omitempty\""
-				WebAssets      *int    "json:\"web_assets,omitempty\""
-			} "json:\"was,omitempty\""
-		} "json:\"apps,omitempty\""
-		Ips      *int    "json:\"ips,omitempty\""
-		Scanners *int    "json:\"scanners,omitempty\""
-		Type     *string "json:\"type,omitempty\""
-	} "json:\"license,omitempty\""
-	Linked             *int    "json:\"linked,omitempty\""
-	LoadedPluginSet    *string "json:\"loaded_plugin_set,omitempty\""
-	Name               *string "json:\"name,omitempty\""
-	NetworkName        *string "json:\"network_name,omitempty\""
-	NumHosts           *int    "json:\"num_hosts,omitempty\""
-	NumScans           *int    "json:\"num_scans,omitempty\""
-	NumSessions        *int    "json:\"num_sessions,omitempty\""
-	NumTcpSessions     *int    "json:\"num_tcp_sessions,omitempty\""
-	Owner              *string "json:\"owner,omitempty\""
-	OwnerId            *int    "json:\"owner_id,omitempty\""
-	OwnerName          *string "json:\"owner_name,omitempty\""
-	OwnerUuid          *string "json:\"owner_uuid,omitempty\""
-	Platform           *string "json:\"platform,omitempty\""
-	Pool               *bool   "json:\"pool,omitempty\""
-	RegistrationCode   *string "json:\"registration_code,omitempty\""
-	ScanCount          *int    "json:\"scan_count,omitempty\""
-	Shared             *bool   "json:\"shared,omitempty\""
-	Source             *string "json:\"source,omitempty\""
-	Status             *string "json:\"status,omitempty\""
-	SupportsRemoteLogs *bool   "json:\"supports_remote_logs,omitempty\""
-	SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
-	Timestamp          *int    "json:\"timestamp,omitempty\""
-	Type               *string "json:\"type,omitempty\""
-	UiBuild            *int    "json:\"ui_build,omitempty\""
-	UiVersion          *string "json:\"ui_version,omitempty\""
-	UserPermissions    *int    "json:\"user_permissions,omitempty\""
-	Uuid               *string "json:\"uuid,omitempty\""
-}, error) {
-	if c.ClientInterface.(*Client).token == "" {
-		err := c.Authenticate()
-		if err != nil {
-			return nil, err
-		}
-	}
-	r, err := c.evaluateResponse(c.ClientWithResponses.ScannersListWithResponse(c.ClientInterface.(*Client).ctx, reqEditors...))
-	if err != nil {
-		return nil, err
-	}
-	// convert to *[]struct { AwsUpdateInterval *int "json:\"aws_update_interval,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Distro *string "json:\"distro,omitempty\""; EngineVersion *string "json:\"engine_version,omitempty\""; Group *bool "json:\"group,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Id *int "json:\"id,omitempty\""; IpAddresses *[]string "json:\"ip_addresses,omitempty\""; Key *string "json:\"key,omitempty\""; LastConnect *string "json:\"last_connect,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; License *struct { Agents *int "json:\"agents,omitempty\""; Apps *struct { Consec *struct { ActivationCode *int "json:\"activation_code,omitempty\""; ExpirationDate *int "json:\"expiration_date,omitempty\""; MaxGb *int "json:\"max_gb,omitempty\""; Mode *string "json:\"mode,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"consec,omitempty\""; Type *string "json:\"type,omitempty\""; Was *struct { ActivationCode *int "json:\"activation_code,omitempty\""; ExpirationDate *int "json:\"expiration_date,omitempty\""; Mode *string "json:\"mode,omitempty\""; Type *string "json:\"type,omitempty\""; WebAssets *int "json:\"web_assets,omitempty\"" } "json:\"was,omitempty\"" } "json:\"apps,omitempty\""; Ips *int "json:\"ips,omitempty\""; Scanners *int "json:\"scanners,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"license,omitempty\""; Linked *int "json:\"linked,omitempty\""; LoadedPluginSet *string "json:\"loaded_plugin_set,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; NumHosts *int "json:\"num_hosts,omitempty\""; NumScans *int "json:\"num_scans,omitempty\""; NumSessions *int "json:\"num_sessions,omitempty\""; NumTcpSessions *int "json:\"num_tcp_sessions,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Platform *string "json:\"platform,omitempty\""; Pool *bool "json:\"pool,omitempty\""; RegistrationCode *string "json:\"registration_code,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Source *string "json:\"source,omitempty\""; Status *string "json:\"status,omitempty\""; SupportsRemoteLogs *bool "json:\"supports_remote_logs,omitempty\""; SupportsWebapp *bool "json:\"supports_webapp,omitempty\""; Timestamp *int "json:\"timestamp,omitempty\""; Type *string "json:\"type,omitempty\""; UiBuild *int "json:\"ui_build,omitempty\""; UiVersion *string "json:\"ui_version,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
-	if i, ok := r.(*[]struct {
+func (c *Scanners) List(reqEditors ...RequestEditorFn) (*struct {
+	Scanners []struct {
+		Challenge            *string   `json:"challenge,omitempty"`
 		AwsUpdateInterval    *int      "json:\"aws_update_interval,omitempty\""
 		CreationDate         *int      "json:\"creation_date,omitempty\""
 		Distro               *string   "json:\"distro,omitempty\""
@@ -4673,17 +4609,95 @@ func (c *Scanners) List(reqEditors ...RequestEditorFn) (*[]struct {
 		Pool               *bool   "json:\"pool,omitempty\""
 		RegistrationCode   *string "json:\"registration_code,omitempty\""
 		ScanCount          *int    "json:\"scan_count,omitempty\""
-		Shared             *bool   "json:\"shared,omitempty\""
+		Shared             *int    "json:\"shared,omitempty\""
 		Source             *string "json:\"source,omitempty\""
 		Status             *string "json:\"status,omitempty\""
 		SupportsRemoteLogs *bool   "json:\"supports_remote_logs,omitempty\""
 		SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
 		Timestamp          *int    "json:\"timestamp,omitempty\""
 		Type               *string "json:\"type,omitempty\""
-		UiBuild            *int    "json:\"ui_build,omitempty\""
+		UiBuild            *string "json:\"ui_build,omitempty\""
 		UiVersion          *string "json:\"ui_version,omitempty\""
 		UserPermissions    *int    "json:\"user_permissions,omitempty\""
 		Uuid               *string "json:\"uuid,omitempty\""
+	} "json:\"scanners,omitempty\""
+}, error) {
+	if c.ClientInterface.(*Client).token == "" {
+		err := c.Authenticate()
+		if err != nil {
+			return nil, err
+		}
+	}
+	r, err := c.evaluateResponse(c.ClientWithResponses.ScannersListWithResponse(c.ClientInterface.(*Client).ctx, reqEditors...))
+	if err != nil {
+		return nil, err
+	}
+	// convert to *[]struct { AwsUpdateInterval *int "json:\"aws_update_interval,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; Distro *string "json:\"distro,omitempty\""; EngineVersion *string "json:\"engine_version,omitempty\""; Group *bool "json:\"group,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Id *int "json:\"id,omitempty\""; IpAddresses *[]string "json:\"ip_addresses,omitempty\""; Key *string "json:\"key,omitempty\""; LastConnect *string "json:\"last_connect,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; License *struct { Agents *int "json:\"agents,omitempty\""; Apps *struct { Consec *struct { ActivationCode *int "json:\"activation_code,omitempty\""; ExpirationDate *int "json:\"expiration_date,omitempty\""; MaxGb *int "json:\"max_gb,omitempty\""; Mode *string "json:\"mode,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"consec,omitempty\""; Type *string "json:\"type,omitempty\""; Was *struct { ActivationCode *int "json:\"activation_code,omitempty\""; ExpirationDate *int "json:\"expiration_date,omitempty\""; Mode *string "json:\"mode,omitempty\""; Type *string "json:\"type,omitempty\""; WebAssets *int "json:\"web_assets,omitempty\"" } "json:\"was,omitempty\"" } "json:\"apps,omitempty\""; Ips *int "json:\"ips,omitempty\""; Scanners *int "json:\"scanners,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"license,omitempty\""; Linked *int "json:\"linked,omitempty\""; LoadedPluginSet *string "json:\"loaded_plugin_set,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; NumHosts *int "json:\"num_hosts,omitempty\""; NumScans *int "json:\"num_scans,omitempty\""; NumSessions *int "json:\"num_sessions,omitempty\""; NumTcpSessions *int "json:\"num_tcp_sessions,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; OwnerName *string "json:\"owner_name,omitempty\""; OwnerUuid *string "json:\"owner_uuid,omitempty\""; Platform *string "json:\"platform,omitempty\""; Pool *bool "json:\"pool,omitempty\""; RegistrationCode *string "json:\"registration_code,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Source *string "json:\"source,omitempty\""; Status *string "json:\"status,omitempty\""; SupportsRemoteLogs *bool "json:\"supports_remote_logs,omitempty\""; SupportsWebapp *bool "json:\"supports_webapp,omitempty\""; Timestamp *int "json:\"timestamp,omitempty\""; Type *string "json:\"type,omitempty\""; UiBuild *int "json:\"ui_build,omitempty\""; UiVersion *string "json:\"ui_version,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	if i, ok := r.(*struct {
+		Scanners []struct {
+			Challenge            *string   `json:"challenge,omitempty"`
+			AwsUpdateInterval    *int      "json:\"aws_update_interval,omitempty\""
+			CreationDate         *int      "json:\"creation_date,omitempty\""
+			Distro               *string   "json:\"distro,omitempty\""
+			EngineVersion        *string   "json:\"engine_version,omitempty\""
+			Group                *bool     "json:\"group,omitempty\""
+			Hostname             *string   "json:\"hostname,omitempty\""
+			Id                   *int      "json:\"id,omitempty\""
+			IpAddresses          *[]string "json:\"ip_addresses,omitempty\""
+			Key                  *string   "json:\"key,omitempty\""
+			LastConnect          *string   "json:\"last_connect,omitempty\""
+			LastModificationDate *int      "json:\"last_modification_date,omitempty\""
+			License              *struct {
+				Agents *int "json:\"agents,omitempty\""
+				Apps   *struct {
+					Consec *struct {
+						ActivationCode *int    "json:\"activation_code,omitempty\""
+						ExpirationDate *int    "json:\"expiration_date,omitempty\""
+						MaxGb          *int    "json:\"max_gb,omitempty\""
+						Mode           *string "json:\"mode,omitempty\""
+						Type           *string "json:\"type,omitempty\""
+					} "json:\"consec,omitempty\""
+					Type *string "json:\"type,omitempty\""
+					Was  *struct {
+						ActivationCode *int    "json:\"activation_code,omitempty\""
+						ExpirationDate *int    "json:\"expiration_date,omitempty\""
+						Mode           *string "json:\"mode,omitempty\""
+						Type           *string "json:\"type,omitempty\""
+						WebAssets      *int    "json:\"web_assets,omitempty\""
+					} "json:\"was,omitempty\""
+				} "json:\"apps,omitempty\""
+				Ips      *int    "json:\"ips,omitempty\""
+				Scanners *int    "json:\"scanners,omitempty\""
+				Type     *string "json:\"type,omitempty\""
+			} "json:\"license,omitempty\""
+			Linked             *int    "json:\"linked,omitempty\""
+			LoadedPluginSet    *string "json:\"loaded_plugin_set,omitempty\""
+			Name               *string "json:\"name,omitempty\""
+			NetworkName        *string "json:\"network_name,omitempty\""
+			NumHosts           *int    "json:\"num_hosts,omitempty\""
+			NumScans           *int    "json:\"num_scans,omitempty\""
+			NumSessions        *int    "json:\"num_sessions,omitempty\""
+			NumTcpSessions     *int    "json:\"num_tcp_sessions,omitempty\""
+			Owner              *string "json:\"owner,omitempty\""
+			OwnerId            *int    "json:\"owner_id,omitempty\""
+			OwnerName          *string "json:\"owner_name,omitempty\""
+			OwnerUuid          *string "json:\"owner_uuid,omitempty\""
+			Platform           *string "json:\"platform,omitempty\""
+			Pool               *bool   "json:\"pool,omitempty\""
+			RegistrationCode   *string "json:\"registration_code,omitempty\""
+			ScanCount          *int    "json:\"scan_count,omitempty\""
+			Shared             *int    "json:\"shared,omitempty\""
+			Source             *string "json:\"source,omitempty\""
+			Status             *string "json:\"status,omitempty\""
+			SupportsRemoteLogs *bool   "json:\"supports_remote_logs,omitempty\""
+			SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
+			Timestamp          *int    "json:\"timestamp,omitempty\""
+			Type               *string "json:\"type,omitempty\""
+			UiBuild            *string "json:\"ui_build,omitempty\""
+			UiVersion          *string "json:\"ui_version,omitempty\""
+			UserPermissions    *int    "json:\"user_permissions,omitempty\""
+			Uuid               *string "json:\"uuid,omitempty\""
+		} "json:\"scanners,omitempty\""
 	}); ok {
 		return i, nil
 	}
@@ -5294,7 +5308,7 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 		Critical              *int                    "json:\"critical,omitempty\""
 		High                  *int                    "json:\"high,omitempty\""
 		HostId                *int                    "json:\"host_id,omitempty\""
-		HostIndex             *string                 "json:\"host_index,omitempty\""
+		HostIndex             *int                    "json:\"host_index,omitempty\""
 		Hostname              *string                 "json:\"hostname,omitempty\""
 		Info                  *int                    "json:\"info,omitempty\""
 		Low                   *int                    "json:\"low,omitempty\""
@@ -5343,7 +5357,7 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 		Critical              *int                    "json:\"critical,omitempty\""
 		High                  *int                    "json:\"high,omitempty\""
 		HostId                *int                    "json:\"host_id,omitempty\""
-		HostIndex             *string                 "json:\"host_index,omitempty\""
+		HostIndex             *int                    "json:\"host_index,omitempty\""
 		Hostname              *string                 "json:\"hostname,omitempty\""
 		Info                  *int                    "json:\"info,omitempty\""
 		Low                   *int                    "json:\"low,omitempty\""
@@ -5382,9 +5396,9 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 		ScanEnd         *int      "json:\"scan_end,omitempty\""
 		ScanStart       *int32    "json:\"scan_start,omitempty\""
 		ScanType        *string   "json:\"scan_type,omitempty\""
-		ScannerEnd      *string   "json:\"scanner_end,omitempty\""
+		ScannerEnd      *int      "json:\"scanner_end,omitempty\""
 		ScannerName     *string   "json:\"scanner_name,omitempty\""
-		ScannerStart    *string   "json:\"scanner_start,omitempty\""
+		ScannerStart    *int      "json:\"scanner_start,omitempty\""
 		ScheduleUuid    *string   "json:\"schedule_uuid,omitempty\""
 		Shared          *bool     "json:\"shared,omitempty\""
 		Status          *string   "json:\"status,omitempty\""
@@ -5420,13 +5434,13 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Comphosts *[]struct { Critical *int "json:\"critical,omitempty\""; High *int "json:\"high,omitempty\""; HostId *int "json:\"host_id,omitempty\""; HostIndex *string "json:\"host_index,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Info *int "json:\"info,omitempty\""; Low *int "json:\"low,omitempty\""; Medium *int "json:\"medium,omitempty\""; Numchecksconsidered *int "json:\"numchecksconsidered,omitempty\""; Progress *string "json:\"progress,omitempty\""; Scanprogresscurrent *int "json:\"scanprogresscurrent,omitempty\""; Scanprogresstotal *int "json:\"scanprogresstotal,omitempty\""; Score *int "json:\"score,omitempty\""; Severitycount *map[string]interface {} "json:\"severitycount,omitempty\""; Totalchecksconsidered *int "json:\"totalchecksconsidered,omitempty\"" } "json:\"comphosts,omitempty\""; Compliance *[]struct { Count *int "json:\"count,omitempty\""; PluginFamily *string "json:\"plugin_family,omitempty\""; PluginId *int "json:\"plugin_id,omitempty\""; PluginName *string "json:\"plugin_name,omitempty\""; Severity *int "json:\"severity,omitempty\""; SeverityIndex *int "json:\"severity_index,omitempty\""; VulnIndex *int "json:\"vuln_index,omitempty\"" } "json:\"compliance,omitempty\""; Filters *[]struct { Control *struct { Options *[]string "json:\"options,omitempty\""; ReadableRegest *string "json:\"readable_regest,omitempty\""; Regex *string "json:\"regex,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"control,omitempty\""; Name *string "json:\"name,omitempty\""; Operators *[]string "json:\"operators,omitempty\""; ReadableName *string "json:\"readable_name,omitempty\"" } "json:\"filters,omitempty\""; History *[]struct { AltTargetsUsed *bool "json:\"alt_targets_used,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; HistoryId *int "json:\"history_id,omitempty\""; IsArchived *bool "json:\"is_archived,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Scheduler *int "json:\"scheduler,omitempty\""; Status *string "json:\"status,omitempty\""; Type *string "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"history,omitempty\""; Hosts *[]struct { Critical *int "json:\"critical,omitempty\""; High *int "json:\"high,omitempty\""; HostId *int "json:\"host_id,omitempty\""; HostIndex *string "json:\"host_index,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Info *int "json:\"info,omitempty\""; Low *int "json:\"low,omitempty\""; Medium *int "json:\"medium,omitempty\""; Numchecksconsidered *int "json:\"numchecksconsidered,omitempty\""; Progress *string "json:\"progress,omitempty\""; Scanprogresscurrent *int "json:\"scanprogresscurrent,omitempty\""; Scanprogresstotal *int "json:\"scanprogresstotal,omitempty\""; Score *int "json:\"score,omitempty\""; Severitycount *map[string]interface {} "json:\"severitycount,omitempty\""; Totalchecksconsidered *int "json:\"totalchecksconsidered,omitempty\"" } "json:\"hosts,omitempty\""; Info *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int "json:\"permissions,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"acls,omitempty\""; AltTargetsUsed *bool "json:\"alt_targets_used,omitempty\""; Control *bool "json:\"control,omitempty\""; EditAllowed *bool "json:\"edit_allowed,omitempty\""; FolderId *int32 "json:\"folder_id,omitempty\""; Hasaudittrail *bool "json:\"hasaudittrail,omitempty\""; Haskb *bool "json:\"haskb,omitempty\""; Hostcount *int32 "json:\"hostcount,omitempty\""; IsArchived *bool "json:\"is_archived,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *bool "json:\"no_target,omitempty\""; ObjectId *int32 "json:\"object_id,omitempty\""; Owner *string "json:\"owner,omitempty\""; PciCanUpload *bool "json:\"pci-can-upload,omitempty\""; Policy *string "json:\"policy,omitempty\""; ScanEnd *int "json:\"scan_end,omitempty\""; ScanStart *int32 "json:\"scan_start,omitempty\""; ScanType *string "json:\"scan_type,omitempty\""; ScannerEnd *string "json:\"scanner_end,omitempty\""; ScannerName *string "json:\"scanner_name,omitempty\""; ScannerStart *string "json:\"scanner_start,omitempty\""; ScheduleUuid *string "json:\"schedule_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Status *string "json:\"status,omitempty\""; TagTargets *[]string "json:\"tag_targets,omitempty\""; Targets *string "json:\"targets,omitempty\""; Timestamp *int "json:\"timestamp,omitempty\""; UserPermissions *int32 "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"info,omitempty\""; Notes *[]struct { Message *string "json:\"message,omitempty\""; Severity *int "json:\"severity,omitempty\""; Title *string "json:\"title,omitempty\"" } "json:\"notes,omitempty\""; Remediations *map[string]interface {} "json:\"remediations,omitempty\""; Vulnerabilities *[]struct { Count *int "json:\"count,omitempty\""; PluginFamily *string "json:\"plugin_family,omitempty\""; PluginId *int "json:\"plugin_id,omitempty\""; PluginName *string "json:\"plugin_name,omitempty\""; Severity *int "json:\"severity,omitempty\""; SeverityIndex *int "json:\"severity_index,omitempty\""; VulnIndex *int "json:\"vuln_index,omitempty\"" } "json:\"vulnerabilities,omitempty\"" }
+	// convert to *struct { Comphosts *[]struct { Critical *int "json:\"critical,omitempty\""; High *int "json:\"high,omitempty\""; HostId *int "json:\"host_id,omitempty\""; HostIndex *int "json:\"host_index,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Info *int "json:\"info,omitempty\""; Low *int "json:\"low,omitempty\""; Medium *int "json:\"medium,omitempty\""; Numchecksconsidered *int "json:\"numchecksconsidered,omitempty\""; Progress *string "json:\"progress,omitempty\""; Scanprogresscurrent *int "json:\"scanprogresscurrent,omitempty\""; Scanprogresstotal *int "json:\"scanprogresstotal,omitempty\""; Score *int "json:\"score,omitempty\""; Severitycount *map[string]interface {} "json:\"severitycount,omitempty\""; Totalchecksconsidered *int "json:\"totalchecksconsidered,omitempty\"" } "json:\"comphosts,omitempty\""; Compliance *[]struct { Count *int "json:\"count,omitempty\""; PluginFamily *string "json:\"plugin_family,omitempty\""; PluginId *int "json:\"plugin_id,omitempty\""; PluginName *string "json:\"plugin_name,omitempty\""; Severity *int "json:\"severity,omitempty\""; SeverityIndex *int "json:\"severity_index,omitempty\""; VulnIndex *int "json:\"vuln_index,omitempty\"" } "json:\"compliance,omitempty\""; Filters *[]struct { Control *struct { Options *[]string "json:\"options,omitempty\""; ReadableRegest *string "json:\"readable_regest,omitempty\""; Regex *string "json:\"regex,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"control,omitempty\""; Name *string "json:\"name,omitempty\""; Operators *[]string "json:\"operators,omitempty\""; ReadableName *string "json:\"readable_name,omitempty\"" } "json:\"filters,omitempty\""; History *[]struct { AltTargetsUsed *bool "json:\"alt_targets_used,omitempty\""; CreationDate *int "json:\"creation_date,omitempty\""; HistoryId *int "json:\"history_id,omitempty\""; IsArchived *bool "json:\"is_archived,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Scheduler *int "json:\"scheduler,omitempty\""; Status *string "json:\"status,omitempty\""; Type *string "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"history,omitempty\""; Hosts *[]struct { Critical *int "json:\"critical,omitempty\""; High *int "json:\"high,omitempty\""; HostId *int "json:\"host_id,omitempty\""; HostIndex *int "json:\"host_index,omitempty\""; Hostname *string "json:\"hostname,omitempty\""; Info *int "json:\"info,omitempty\""; Low *int "json:\"low,omitempty\""; Medium *int "json:\"medium,omitempty\""; Numchecksconsidered *int "json:\"numchecksconsidered,omitempty\""; Progress *string "json:\"progress,omitempty\""; Scanprogresscurrent *int "json:\"scanprogresscurrent,omitempty\""; Scanprogresstotal *int "json:\"scanprogresstotal,omitempty\""; Score *int "json:\"score,omitempty\""; Severitycount *map[string]interface {} "json:\"severitycount,omitempty\""; Totalchecksconsidered *int "json:\"totalchecksconsidered,omitempty\"" } "json:\"hosts,omitempty\""; Info *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int "json:\"permissions,omitempty\""; Type *string "json:\"type,omitempty\"" } "json:\"acls,omitempty\""; AltTargetsUsed *bool "json:\"alt_targets_used,omitempty\""; Control *bool "json:\"control,omitempty\""; EditAllowed *bool "json:\"edit_allowed,omitempty\""; FolderId *int32 "json:\"folder_id,omitempty\""; Hasaudittrail *bool "json:\"hasaudittrail,omitempty\""; Haskb *bool "json:\"haskb,omitempty\""; Hostcount *int32 "json:\"hostcount,omitempty\""; IsArchived *bool "json:\"is_archived,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *bool "json:\"no_target,omitempty\""; ObjectId *int32 "json:\"object_id,omitempty\""; Owner *string "json:\"owner,omitempty\""; PciCanUpload *bool "json:\"pci-can-upload,omitempty\""; Policy *string "json:\"policy,omitempty\""; ScanEnd *int "json:\"scan_end,omitempty\""; ScanStart *int32 "json:\"scan_start,omitempty\""; ScanType *string "json:\"scan_type,omitempty\""; ScannerEnd      *int "json:\"scanner_end,omitempty\""; ScannerName *string "json:\"scanner_name,omitempty\""; ScannerStart *int "json:\"scanner_start,omitempty\""; ScheduleUuid *string "json:\"schedule_uuid,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Status *string "json:\"status,omitempty\""; TagTargets *[]string "json:\"tag_targets,omitempty\""; Targets *string "json:\"targets,omitempty\""; Timestamp *int "json:\"timestamp,omitempty\""; UserPermissions *int32 "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"info,omitempty\""; Notes *[]struct { Message *string "json:\"message,omitempty\""; Severity *int "json:\"severity,omitempty\""; Title *string "json:\"title,omitempty\"" } "json:\"notes,omitempty\""; Remediations *map[string]interface {} "json:\"remediations,omitempty\""; Vulnerabilities *[]struct { Count *int "json:\"count,omitempty\""; PluginFamily *string "json:\"plugin_family,omitempty\""; PluginId *int "json:\"plugin_id,omitempty\""; PluginName *string "json:\"plugin_name,omitempty\""; Severity *int "json:\"severity,omitempty\""; SeverityIndex *int "json:\"severity_index,omitempty\""; VulnIndex *int "json:\"vuln_index,omitempty\"" } "json:\"vulnerabilities,omitempty\"" }
 	if i, ok := r.(*struct {
 		Comphosts *[]struct {
 			Critical              *int                    "json:\"critical,omitempty\""
 			High                  *int                    "json:\"high,omitempty\""
 			HostId                *int                    "json:\"host_id,omitempty\""
-			HostIndex             *string                 "json:\"host_index,omitempty\""
+			HostIndex             *int                    "json:\"host_index,omitempty\""
 			Hostname              *string                 "json:\"hostname,omitempty\""
 			Info                  *int                    "json:\"info,omitempty\""
 			Low                   *int                    "json:\"low,omitempty\""
@@ -5475,7 +5489,7 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 			Critical              *int                    "json:\"critical,omitempty\""
 			High                  *int                    "json:\"high,omitempty\""
 			HostId                *int                    "json:\"host_id,omitempty\""
-			HostIndex             *string                 "json:\"host_index,omitempty\""
+			HostIndex             *int                    "json:\"host_index,omitempty\""
 			Hostname              *string                 "json:\"hostname,omitempty\""
 			Info                  *int                    "json:\"info,omitempty\""
 			Low                   *int                    "json:\"low,omitempty\""
@@ -5514,9 +5528,9 @@ func (c *Scans) Details(arg1 string, params *ScansDetailsParams, reqEditors ...R
 			ScanEnd         *int      "json:\"scan_end,omitempty\""
 			ScanStart       *int32    "json:\"scan_start,omitempty\""
 			ScanType        *string   "json:\"scan_type,omitempty\""
-			ScannerEnd      *string   "json:\"scanner_end,omitempty\""
+			ScannerEnd      *int      "json:\"scanner_end,omitempty\""
 			ScannerName     *string   "json:\"scanner_name,omitempty\""
-			ScannerStart    *string   "json:\"scanner_start,omitempty\""
+			ScannerStart    *int      "json:\"scanner_start,omitempty\""
 			ScheduleUuid    *string   "json:\"schedule_uuid,omitempty\""
 			Shared          *bool     "json:\"shared,omitempty\""
 			Status          *string   "json:\"status,omitempty\""
@@ -6386,7 +6400,7 @@ func (c *TargetGroups) CreateWithBody(arg1 string, body io.Reader, reqEditors ..
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6400,7 +6414,7 @@ func (c *TargetGroups) CreateWithBody(arg1 string, body io.Reader, reqEditors ..
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6418,7 +6432,7 @@ func (c *TargetGroups) CreateWithBody(arg1 string, body io.Reader, reqEditors ..
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -6447,7 +6461,7 @@ func (c *TargetGroups) Create(arg1 TargetGroupsCreateJSONRequestBody, reqEditors
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6461,7 +6475,7 @@ func (c *TargetGroups) Create(arg1 TargetGroupsCreateJSONRequestBody, reqEditors
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6479,7 +6493,7 @@ func (c *TargetGroups) Create(arg1 TargetGroupsCreateJSONRequestBody, reqEditors
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -6529,7 +6543,7 @@ func (c *TargetGroups) Details(arg1 int32, reqEditors ...RequestEditorFn) (*stru
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6543,7 +6557,7 @@ func (c *TargetGroups) Details(arg1 int32, reqEditors ...RequestEditorFn) (*stru
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6561,7 +6575,7 @@ func (c *TargetGroups) Details(arg1 int32, reqEditors ...RequestEditorFn) (*stru
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -6590,7 +6604,7 @@ func (c *TargetGroups) EditWithBody(arg1 int32, arg2 string, body io.Reader, req
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6604,7 +6618,7 @@ func (c *TargetGroups) EditWithBody(arg1 int32, arg2 string, body io.Reader, req
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6622,7 +6636,7 @@ func (c *TargetGroups) EditWithBody(arg1 int32, arg2 string, body io.Reader, req
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -6651,7 +6665,7 @@ func (c *TargetGroups) Edit(arg1 int32, arg2 TargetGroupsEditJSONRequestBody, re
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6665,7 +6679,7 @@ func (c *TargetGroups) Edit(arg1 int32, arg2 TargetGroupsEditJSONRequestBody, re
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6683,7 +6697,7 @@ func (c *TargetGroups) Edit(arg1 int32, arg2 TargetGroupsEditJSONRequestBody, re
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -6712,7 +6726,7 @@ func (c *TargetGroups) List(reqEditors ...RequestEditorFn) (*[]struct {
 	Name                 *string "json:\"name,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -6726,7 +6740,7 @@ func (c *TargetGroups) List(reqEditors ...RequestEditorFn) (*[]struct {
 	if err != nil {
 		return nil, err
 	}
-	// convert to *[]struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *[]struct { Acls *[]struct { DisplayName *string "json:\"display_name,omitempty\""; Id *int "json:\"id,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *int "json:\"owner,omitempty\""; Permissions *int32 "json:\"permissions,omitempty\""; Type *N200AclsType "json:\"type,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" } "json:\"acls,omitempty\""; DefaultGroup *bool "json:\"default_group,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Members *string "json:\"members,omitempty\""; Name *string "json:\"name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*[]struct {
 		Acls *[]struct {
 			DisplayName *string       "json:\"display_name,omitempty\""
@@ -6744,7 +6758,7 @@ func (c *TargetGroups) List(reqEditors ...RequestEditorFn) (*[]struct {
 		Name                 *string "json:\"name,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -7922,7 +7936,7 @@ func (c *Scanner) GroupsCreateWithBody(arg1 string, body io.Reader, reqEditors .
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -7938,7 +7952,7 @@ func (c *Scanner) GroupsCreateWithBody(arg1 string, body io.Reader, reqEditors .
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -7952,7 +7966,7 @@ func (c *Scanner) GroupsCreateWithBody(arg1 string, body io.Reader, reqEditors .
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -7979,7 +7993,7 @@ func (c *Scanner) GroupsCreate(arg1 ScannerGroupsCreateJSONRequestBody, reqEdito
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -7995,7 +8009,7 @@ func (c *Scanner) GroupsCreate(arg1 ScannerGroupsCreateJSONRequestBody, reqEdito
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -8009,7 +8023,7 @@ func (c *Scanner) GroupsCreate(arg1 ScannerGroupsCreateJSONRequestBody, reqEdito
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8078,7 +8092,7 @@ func (c *Scanner) GroupsDetails(arg1 int32, reqEditors ...RequestEditorFn) (*str
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8094,7 +8108,7 @@ func (c *Scanner) GroupsDetails(arg1 int32, reqEditors ...RequestEditorFn) (*str
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -8108,7 +8122,7 @@ func (c *Scanner) GroupsDetails(arg1 int32, reqEditors ...RequestEditorFn) (*str
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8135,7 +8149,7 @@ func (c *Scanner) GroupsEditWithBody(arg1 int32, arg2 string, body io.Reader, re
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8151,7 +8165,7 @@ func (c *Scanner) GroupsEditWithBody(arg1 int32, arg2 string, body io.Reader, re
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -8165,7 +8179,7 @@ func (c *Scanner) GroupsEditWithBody(arg1 int32, arg2 string, body io.Reader, re
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8192,7 +8206,7 @@ func (c *Scanner) GroupsEdit(arg1 int32, arg2 ScannerGroupsEditJSONRequestBody, 
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8208,7 +8222,7 @@ func (c *Scanner) GroupsEdit(arg1 int32, arg2 ScannerGroupsEditJSONRequestBody, 
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -8222,7 +8236,7 @@ func (c *Scanner) GroupsEdit(arg1 int32, arg2 ScannerGroupsEditJSONRequestBody, 
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8294,7 +8308,7 @@ func (c *Scanner) GroupsListScanners(arg1 int32, reqEditors ...RequestEditorFn) 
 	SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
 	Timestamp          *int    "json:\"timestamp,omitempty\""
 	Type               *string "json:\"type,omitempty\""
-	UiBuild            *int    "json:\"ui_build,omitempty\""
+	UiBuild            *string "json:\"ui_build,omitempty\""
 	UiVersion          *string "json:\"ui_version,omitempty\""
 	UserPermissions    *int    "json:\"user_permissions,omitempty\""
 	Uuid               *string "json:\"uuid,omitempty\""
@@ -8368,7 +8382,7 @@ func (c *Scanner) GroupsListScanners(arg1 int32, reqEditors ...RequestEditorFn) 
 		SupportsWebapp     *bool   "json:\"supports_webapp,omitempty\""
 		Timestamp          *int    "json:\"timestamp,omitempty\""
 		Type               *string "json:\"type,omitempty\""
-		UiBuild            *int    "json:\"ui_build,omitempty\""
+		UiBuild            *string "json:\"ui_build,omitempty\""
 		UiVersion          *string "json:\"ui_version,omitempty\""
 		UserPermissions    *int    "json:\"user_permissions,omitempty\""
 		Uuid               *string "json:\"uuid,omitempty\""
@@ -8394,7 +8408,7 @@ func (c *Scanner) GroupsList(reqEditors ...RequestEditorFn) (*struct {
 	ScanCount            *int    "json:\"scan_count,omitempty\""
 	ScannerCount         *string "json:\"scanner_count,omitempty\""
 	ScannerId            *int    "json:\"scanner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	Token                *string "json:\"token,omitempty\""
 	Type                 *string "json:\"type,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -8410,7 +8424,7 @@ func (c *Scanner) GroupsList(reqEditors ...RequestEditorFn) (*struct {
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; DefaultPermissions *int "json:\"default_permissions,omitempty\""; Flag *string "json:\"flag,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NetworkName *string "json:\"network_name,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; ScanCount *int "json:\"scan_count,omitempty\""; ScannerCount *string "json:\"scanner_count,omitempty\""; ScannerId *int "json:\"scanner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; Token *string "json:\"token,omitempty\""; Type *string "json:\"type,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Uuid *string "json:\"uuid,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		DefaultPermissions   *int    "json:\"default_permissions,omitempty\""
@@ -8424,7 +8438,7 @@ func (c *Scanner) GroupsList(reqEditors ...RequestEditorFn) (*struct {
 		ScanCount            *int    "json:\"scan_count,omitempty\""
 		ScannerCount         *string "json:\"scanner_count,omitempty\""
 		ScannerId            *int    "json:\"scanner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		Token                *string "json:\"token,omitempty\""
 		Type                 *string "json:\"type,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
@@ -12017,7 +12031,7 @@ func (c *Policies) ImportWithBody(arg1 string, body io.Reader, reqEditors ...Req
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
 	Private              *int    "json:\"private,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	TemplateUuid         *string "json:\"template_uuid,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -12031,7 +12045,7 @@ func (c *Policies) ImportWithBody(arg1 string, body io.Reader, reqEditors ...Req
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *string "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Private *int "json:\"private,omitempty\""; Shared *int "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *string "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Private *int "json:\"private,omitempty\""; Shared *bool "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		Description          *string "json:\"description,omitempty\""
@@ -12042,7 +12056,7 @@ func (c *Policies) ImportWithBody(arg1 string, body io.Reader, reqEditors ...Req
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
 		Private              *int    "json:\"private,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		TemplateUuid         *string "json:\"template_uuid,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -12064,7 +12078,7 @@ func (c *Policies) Import(arg1 PoliciesImportJSONRequestBody, reqEditors ...Requ
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *int    "json:\"owner_id,omitempty\""
 	Private              *int    "json:\"private,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	TemplateUuid         *string "json:\"template_uuid,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 }, error) {
@@ -12078,7 +12092,7 @@ func (c *Policies) Import(arg1 PoliciesImportJSONRequestBody, reqEditors ...Requ
 	if err != nil {
 		return nil, err
 	}
-	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *string "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Private *int "json:\"private,omitempty\""; Shared *int "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
+	// convert to *struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *string "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *int "json:\"owner_id,omitempty\""; Private *int "json:\"private,omitempty\""; Shared *bool "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\"" }
 	if i, ok := r.(*struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		Description          *string "json:\"description,omitempty\""
@@ -12089,7 +12103,7 @@ func (c *Policies) Import(arg1 PoliciesImportJSONRequestBody, reqEditors ...Requ
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *int    "json:\"owner_id,omitempty\""
 		Private              *int    "json:\"private,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		TemplateUuid         *string "json:\"template_uuid,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	}); ok {
@@ -12110,7 +12124,7 @@ func (c *Policies) List(reqEditors ...RequestEditorFn) (*[]struct {
 	NoTarget             *bool   "json:\"no_target,omitempty\""
 	Owner                *string "json:\"owner,omitempty\""
 	OwnerId              *string "json:\"owner_id,omitempty\""
-	Shared               *int    "json:\"shared,omitempty\""
+	Shared               *bool   "json:\"shared,omitempty\""
 	TemplateUuid         *string "json:\"template_uuid,omitempty\""
 	UserPermissions      *int    "json:\"user_permissions,omitempty\""
 	Visibility           *int    "json:\"visibility,omitempty\""
@@ -12125,7 +12139,7 @@ func (c *Policies) List(reqEditors ...RequestEditorFn) (*[]struct {
 	if err != nil {
 		return nil, err
 	}
-	// convert to *[]struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *bool "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; Shared *int "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Visibility *int "json:\"visibility,omitempty\"" }
+	// convert to *[]struct { CreationDate *int "json:\"creation_date,omitempty\""; Description *string "json:\"description,omitempty\""; Id *int "json:\"id,omitempty\""; LastModificationDate *int "json:\"last_modification_date,omitempty\""; Name *string "json:\"name,omitempty\""; NoTarget *bool "json:\"no_target,omitempty\""; Owner *string "json:\"owner,omitempty\""; OwnerId *string "json:\"owner_id,omitempty\""; Shared *bool "json:\"shared,omitempty\""; TemplateUuid *string "json:\"template_uuid,omitempty\""; UserPermissions *int "json:\"user_permissions,omitempty\""; Visibility *int "json:\"visibility,omitempty\"" }
 	if i, ok := r.(*[]struct {
 		CreationDate         *int    "json:\"creation_date,omitempty\""
 		Description          *string "json:\"description,omitempty\""
@@ -12135,7 +12149,7 @@ func (c *Policies) List(reqEditors ...RequestEditorFn) (*[]struct {
 		NoTarget             *bool   "json:\"no_target,omitempty\""
 		Owner                *string "json:\"owner,omitempty\""
 		OwnerId              *string "json:\"owner_id,omitempty\""
-		Shared               *int    "json:\"shared,omitempty\""
+		Shared               *bool   "json:\"shared,omitempty\""
 		TemplateUuid         *string "json:\"template_uuid,omitempty\""
 		UserPermissions      *int    "json:\"user_permissions,omitempty\""
 		Visibility           *int    "json:\"visibility,omitempty\""

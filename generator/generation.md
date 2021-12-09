@@ -20,7 +20,7 @@ replace "HostFqdn *string `json:"host_fqdn,omitempty"`" with "HostFqdn2 *string 
 
 use "test" classes in `nessus_gen_code_test.go`
 
-Old
+Fix "List Results" (described as array, but acutally returned as object with array as value to propery named alike the type (folders: []folder))
 
 ```
 # curl -LO https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh

@@ -25,13 +25,9 @@ type APIClient struct {
 	Policies            PoliciesInterface
 	AuditLog            AuditLogInterface
 	Editor              EditorInterface
-	IoFilters           IoFiltersInterface
-	IoPlugins           IoPluginsInterface
-	IoV2                IoV2Interface
 	AgentConfig         AgentConfigInterface
 	AgentGroup          AgentGroupInterface
 	IoScans             IoScansInterface
-	IoV1                IoV1Interface
 	Exclusions          ExclusionsInterface
 	IoScanner           IoScannerInterface
 	IoAgent             IoAgentInterface
@@ -49,6 +45,10 @@ type APIClient struct {
 	Networks            NetworksInterface
 	Credentials         CredentialsInterface
 	IoExportsCompliance IoExportsComplianceInterface
+	IoFilters           IoFiltersInterface
+	IoPlugins           IoPluginsInterface
+	IoV1                IoV1Interface
+	IoV2                IoV2Interface
 }
 
 // do execute and evaluate the request
@@ -370,7 +370,7 @@ func (c *ClientWithResponses) Authenticate() error {
 	var authResponse AuthResponse
 	err = decoder.Decode(&authResponse)
 	if res == nil {
-		return fmt.Errorf("%s returned currupt result", c.ClientInterface.(*Client).Server)
+		return fmt.Errorf("%s returned corrupt result", c.ClientInterface.(*Client).Server)
 	}
 	c.ClientInterface.(*Client).token = authResponse.Token
 

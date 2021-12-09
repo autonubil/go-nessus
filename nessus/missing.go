@@ -1,7 +1,5 @@
 package nessus
 
-import ()
-
 type N200Type string
 type N200Status string
 type N200PermissionsType string

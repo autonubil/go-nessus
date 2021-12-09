@@ -133,7 +133,7 @@ type Controllers map[string]FunctionList
 func TestGenCode(t *testing.T) {
 	ct := reflect.TypeOf((*ClientWithResponsesInterface)(nil)).Elem()
 	mc := ct.NumMethod()
-	r := regexp.MustCompile(`^(IoV1|IoV2|Assets|Vulnerabilities|AuditLog|IoExportsCompliance|Credentials|Editor|Exclusions|IoFilters|Folders|Networks|IoNetworks|Permissions|IoPlugins|Policies|Scanners|Scanner|IoScanner|Bulk|IoAgent|AgentGroup|AgentConfig|AgentExclusions|Scans|IoScans|Tags|TargetGroups|ExportsVulns|Workbenches)(.*)WithResponse$`)
+	r := regexp.MustCompile(`^(IoV1|IoV2|Assets|Agents|Vulnerabilities|AuditLog|IoExportsCompliance|Credentials|Editor|Exclusions|IoFilters|Folders|Networks|IoNetworks|Permissions|IoPlugins|Policies|Scanners|Scanner|IoScanner|Bulk|IoAgent|AgentGroup|AgentConfig|AgentExclusions|Scans|IoScans|Tags|TargetGroups|ExportsVulns|Workbenches)(.*)WithResponse$`)
 	controllers := Controllers{}
 	for mi := 0; mi < mc; mi++ {
 		m := ct.Method(mi)

@@ -16775,36 +16775,38 @@ func (r EditorPluginDescriptionResponse) StatusCode() int {
 type EditorListTemplatesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *[]struct {
-		// If `true`, the template is only available on the cloud.
-		CloudOnly *bool `json:"cloud_only,omitempty"`
+	JSON200      *struct {
+		Templates []struct {
+			// If `true`, the template is only available on the cloud.
+			CloudOnly *bool `json:"cloud_only,omitempty"`
 
-		// The description of the template.
-		Desc *string `json:"desc,omitempty"`
+			// The description of the template.
+			Desc *string `json:"desc,omitempty"`
 
-		// If `true`, the template can only be used for agent scans.
-		IsAgent *bool `json:"is_agent,omitempty"`
+			// If `true`, the template can only be used for agent scans.
+			IsAgent *bool `json:"is_agent,omitempty"`
 
-		// If `true`, the template can be used for Web Application Scanning only.
-		IsWas *bool `json:"is_was,omitempty"`
+			// If `true`, the template can be used for Web Application Scanning only.
+			IsWas *bool `json:"is_was,omitempty"`
 
-		// If `true`, can only be used by manager.
-		ManagerOnly *bool `json:"manager_only,omitempty"`
+			// If `true`, can only be used by manager.
+			ManagerOnly *bool `json:"manager_only,omitempty"`
 
-		// The short name of the template.
-		Name *string `json:"name,omitempty"`
+			// The short name of the template.
+			Name *string `json:"name,omitempty"`
 
-		// If `true`, the template is only available for subscribers.
-		SubscriptionOnly *bool `json:"subscription_only,omitempty"`
+			// If `true`, the template is only available for subscribers.
+			SubscriptionOnly *bool `json:"subscription_only,omitempty"`
 
-		// The long name of the template.
-		Title *string `json:"title,omitempty"`
+			// The long name of the template.
+			Title *string `json:"title,omitempty"`
 
-		// If `true`, the template is not supported.
-		Unsupported *bool `json:"unsupported,omitempty"`
+			// If `true`, the template is not supported.
+			Unsupported *bool `json:"unsupported,omitempty"`
 
-		// The UUID for the template. Use this value to specify the template when creating scans and policies.
-		Uuid *string `json:"uuid,omitempty"`
+			// The UUID for the template. Use this value to specify the template when creating scans and policies.
+			Uuid *string `json:"uuid,omitempty"`
+		} `json:"templates,omitempty"`
 	}
 }
 
@@ -17811,36 +17813,38 @@ func (r IoFiltersVulnerabilitiesWorkbenchListV2Response) StatusCode() int {
 type FoldersListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *[]struct {
-		// Indicates whether or not the folder is a custom folder:
-		//  - 1—User-created folder. You can rename or delete this folder.
-		//  - 0—System-created folder. You cannot rename or delete this folder.
-		Custom *int `json:"custom,omitempty"`
+	JSON200      *struct {
+		Folders []struct {
+			// Indicates whether or not the folder is a custom folder:
+			//  - 1—User-created folder. You can rename or delete this folder.
+			//  - 0—System-created folder. You cannot rename or delete this folder.
+			Custom *int `json:"custom,omitempty"`
 
-		// Indicates whether or not the folder is the default:
-		//  - 1—The folder is the default.
-		//  - 0—The folder is not the default.
-		//
-		// The main folder is the default folder. You cannot change the default folder.
-		DefaultTag *int `json:"default_tag,omitempty"`
+			// Indicates whether or not the folder is the default:
+			//  - 1—The folder is the default.
+			//  - 0—The folder is not the default.
+			//
+			// The main folder is the default folder. You cannot change the default folder.
+			DefaultTag *int `json:"default_tag,omitempty"`
 
-		// The unique ID of the folder.
-		Id *int `json:"id,omitempty"`
+			// The unique ID of the folder.
+			Id *int `json:"id,omitempty"`
 
-		// The name of the folder. This value corresponds to the folder type as follows:
-		//  - main—My Scans
-		//  - trash—Trash
-		// -custom—user-defined string.
-		Name *string `json:"name,omitempty"`
+			// The name of the folder. This value corresponds to the folder type as follows:
+			//  - main—My Scans
+			//  - trash—Trash
+			// -custom—user-defined string.
+			Name *string `json:"name,omitempty"`
 
-		// The type of the folder:
-		// - main—Tenable-provided folder. Contains all scans that you create but do not assign to a custom folder, as well as any scans shared with you by other users. If you do not specify a scan folder when creating a scan, Tenable.io stores scans in this folder by default. This folder corresponds to the **My Scans** folder in the Tenable.io user interface.
-		//  - trash—Tenable-provided folder. Contains all scans that the current user has moved to the trash folder. Scans stored in the trash folder are automatically deleted after 30 days. This folder corresponds to the **Trash** folder in the Tenable.io user interface.
-		//  - custom—User-created folder. Contains scans as assigned by the current user. You can create custom folders to meet your organizational needs.
-		Type *string `json:"type,omitempty"`
+			// The type of the folder:
+			// - main—Tenable-provided folder. Contains all scans that you create but do not assign to a custom folder, as well as any scans shared with you by other users. If you do not specify a scan folder when creating a scan, Tenable.io stores scans in this folder by default. This folder corresponds to the **My Scans** folder in the Tenable.io user interface.
+			//  - trash—Tenable-provided folder. Contains all scans that the current user has moved to the trash folder. Scans stored in the trash folder are automatically deleted after 30 days. This folder corresponds to the **Trash** folder in the Tenable.io user interface.
+			//  - custom—User-created folder. Contains scans as assigned by the current user. You can create custom folders to meet your organizational needs.
+			Type *string `json:"type,omitempty"`
 
-		// The number of scans in the folder that the current user has not yet viewed in the Tenable.io user interface.
-		UnreadCount *int `json:"unread_count,omitempty"`
+			// The number of scans in the folder that the current user has not yet viewed in the Tenable.io user interface.
+			UnreadCount *int `json:"unread_count,omitempty"`
+		} `json:"folders,omitempty"`
 	}
 }
 
@@ -19108,7 +19112,7 @@ type PoliciesListResponse struct {
 		OwnerId *string `json:"owner_id,omitempty"`
 
 		// The shared status of the policy (`1` if shared with users other than owner, `0` if not shared).
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The UUID for the Tenable-provided template used to create the policy.
 		TemplateUuid *string `json:"template_uuid,omitempty"`
@@ -19175,7 +19179,7 @@ type PoliciesImportResponse struct {
 		Owner                *string `json:"owner,omitempty"`
 		OwnerId              *int    `json:"owner_id,omitempty"`
 		Private              *int    `json:"private,omitempty"`
-		Shared               *int    `json:"shared,omitempty"`
+		Shared               *bool   `json:"shared,omitempty"`
 		TemplateUuid         *string `json:"template_uuid,omitempty"`
 		UserPermissions      *int    `json:"user_permissions,omitempty"`
 	}
@@ -19357,7 +19361,7 @@ type ScannerGroupsListResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19430,7 +19434,7 @@ type ScannerGroupsCreateResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19525,7 +19529,7 @@ type ScannerGroupsDetailsResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19598,7 +19602,7 @@ type ScannerGroupsEditResponse struct {
 		ScannerId *int `json:"scanner_id,omitempty"`
 
 		// The shared status of the scanner-group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The unique token for a scanner group.
 		Token *string `json:"token,omitempty"`
@@ -19842,7 +19846,7 @@ type ScannerGroupsListScannersResponse struct {
 		Type *string `json:"type,omitempty"`
 
 		// The backend build of Nessus that is running on the scanner.
-		UiBuild *int `json:"ui_build,omitempty"`
+		UiBuild *string `json:"ui_build,omitempty"`
 
 		// The backend version of Nessus that is running on the scanner.
 		UiVersion *string `json:"ui_version,omitempty"`
@@ -19918,170 +19922,173 @@ func (r ScannerGroupsAddScannerResponse) StatusCode() int {
 type ScannersListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *[]struct {
-		// Specifies how often, in minutes, the scanner checks in with Tenable.io (Amazon Web Services scanners only).
-		AwsUpdateInterval *int `json:"aws_update_interval,omitempty"`
+	JSON200      *struct {
+		Scanners []struct {
+			Challenge *string `json:"challenge,omitempty"`
+			// Specifies how often, in minutes, the scanner checks in with Tenable.io (Amazon Web Services scanners only).
+			AwsUpdateInterval *int `json:"aws_update_interval,omitempty"`
 
-		// The Unix timestamp when the scanner was created. This attribute specifies the original creation date if the scanner was migrated.
-		CreationDate *int `json:"creation_date,omitempty"`
+			// The Unix timestamp when the scanner was created. This attribute specifies the original creation date if the scanner was migrated.
+			CreationDate *int `json:"creation_date,omitempty"`
 
-		// The scanner operating system distribution.
-		Distro *string `json:"distro,omitempty"`
+			// The scanner operating system distribution.
+			Distro *string `json:"distro,omitempty"`
 
-		// The version of the scanner.
-		EngineVersion *string `json:"engine_version,omitempty"`
+			// The version of the scanner.
+			EngineVersion *string `json:"engine_version,omitempty"`
 
-		// Indicates whether the scanner belongs to a scanner group ('true') or not ('false').
-		Group *bool `json:"group,omitempty"`
+			// Indicates whether the scanner belongs to a scanner group ('true') or not ('false').
+			Group *bool `json:"group,omitempty"`
 
-		// The hostname of the scanner.
-		Hostname *string `json:"hostname,omitempty"`
+			// The hostname of the scanner.
+			Hostname *string `json:"hostname,omitempty"`
 
-		// The unique ID of the scanner.
-		Id *int `json:"id,omitempty"`
+			// The unique ID of the scanner.
+			Id *int `json:"id,omitempty"`
 
-		// A list of IP addresses associated with the scanner.
-		IpAddresses *[]string `json:"ip_addresses,omitempty"`
+			// A list of IP addresses associated with the scanner.
+			IpAddresses *[]string `json:"ip_addresses,omitempty"`
 
-		// The linking key, that is, the alpha-numeric sequence of characters you use to link a scanner to Tenable.io. For more information about linking a scanner to Tenable.io, see the [Tenable.io Vulnerability Management Guide](https://docs.tenable.com/tenableio/vulnerabilitymanagement/Content/Settings/LinkaSensor.htm).
-		Key *string `json:"key,omitempty"`
+			// The linking key, that is, the alpha-numeric sequence of characters you use to link a scanner to Tenable.io. For more information about linking a scanner to Tenable.io, see the [Tenable.io Vulnerability Management Guide](https://docs.tenable.com/tenableio/vulnerabilitymanagement/Content/Settings/LinkaSensor.htm).
+			Key *string `json:"key,omitempty"`
 
-		// The Unix timestamp when any of the scanner's tasks have provided its last update.
-		LastConnect *string `json:"last_connect,omitempty"`
+			// The Unix timestamp when any of the scanner's tasks have provided its last update.
+			LastConnect *string `json:"last_connect,omitempty"`
 
-		// The Unix timestamp when the scanner was last modified.
-		LastModificationDate *int `json:"last_modification_date,omitempty"`
-		License              *struct {
-			// The number of agents the scanner is licensed to use.
-			Agents *int `json:"agents,omitempty"`
-			Apps   *struct {
-				Consec *struct {
-					// The activation code you used to enable the license. This value is present for standard licenses only.
-					ActivationCode *int `json:"activation_code,omitempty"`
+			// The Unix timestamp when the scanner was last modified.
+			LastModificationDate *int `json:"last_modification_date,omitempty"`
+			License              *struct {
+				// The number of agents the scanner is licensed to use.
+				Agents *int `json:"agents,omitempty"`
+				Apps   *struct {
+					Consec *struct {
+						// The activation code you used to enable the license. This value is present for standard licenses only.
+						ActivationCode *int `json:"activation_code,omitempty"`
 
-					// The Unix timestamp when the license expires.
-					ExpirationDate *int `json:"expiration_date,omitempty"`
+						// The Unix timestamp when the license expires.
+						ExpirationDate *int `json:"expiration_date,omitempty"`
 
-					// The maximum memory (in GB) on the scanner allotted for the Tenable licensed application.
-					MaxGb *int `json:"max_gb,omitempty"`
+						// The maximum memory (in GB) on the scanner allotted for the Tenable licensed application.
+						MaxGb *int `json:"max_gb,omitempty"`
 
-					// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
-					Mode *string `json:"mode,omitempty"`
+						// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
+						Mode *string `json:"mode,omitempty"`
 
-					// Indicates that the scanner is licensed to perform Tenable.io Container Security scans.
+						// Indicates that the scanner is licensed to perform Tenable.io Container Security scans.
+						Type *string `json:"type,omitempty"`
+					} `json:"consec,omitempty"`
+
+					// The Tenable products licensed on the scanner.
 					Type *string `json:"type,omitempty"`
-				} `json:"consec,omitempty"`
+					Was  *struct {
+						// The activation code you used to enable the license. This value is present for standard licenses only.
+						ActivationCode *int `json:"activation_code,omitempty"`
 
-				// The Tenable products licensed on the scanner.
+						// The Unix timestamp when the license expires.
+						ExpirationDate *int `json:"expiration_date,omitempty"`
+
+						// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
+						Mode *string `json:"mode,omitempty"`
+
+						// Indicates that the scanner is licensed to perform Tenable.io Web Application Scanning scans.
+						Type *string `json:"type,omitempty"`
+
+						// The number of web assets which your license authorizes you to scan.
+						WebAssets *int `json:"web_assets,omitempty"`
+					} `json:"was,omitempty"`
+				} `json:"apps,omitempty"`
+
+				// The number of hosts the scanner is licensed to use.
+				Ips *int `json:"ips,omitempty"`
+
+				// The number of scanners the scanner is licensed to use.
+				Scanners *int `json:"scanners,omitempty"`
+
+				// The license type.
 				Type *string `json:"type,omitempty"`
-				Was  *struct {
-					// The activation code you used to enable the license. This value is present for standard licenses only.
-					ActivationCode *int `json:"activation_code,omitempty"`
+			} `json:"license,omitempty"`
 
-					// The Unix timestamp when the license expires.
-					ExpirationDate *int `json:"expiration_date,omitempty"`
+			// Specifies whether you disabled (`0`) or enabled (`1`) the scanner. For more information, see the [PUT /scanners/{scanner_id}/link](ref:scanners-toggle-link-state) endpoint.
+			Linked *int `json:"linked,omitempty"`
 
-					// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
-					Mode *string `json:"mode,omitempty"`
+			// The current plugin set on the scanner.
+			LoadedPluginSet *string `json:"loaded_plugin_set,omitempty"`
 
-					// Indicates that the scanner is licensed to perform Tenable.io Web Application Scanning scans.
-					Type *string `json:"type,omitempty"`
+			// The user-defined name of the scanner.
+			Name *string `json:"name,omitempty"`
 
-					// The number of web assets which your license authorizes you to scan.
-					WebAssets *int `json:"web_assets,omitempty"`
-				} `json:"was,omitempty"`
-			} `json:"apps,omitempty"`
+			// The name of the network object associated with the scanner. For more information about network objects, see [Manage Networks](doc:manage-networks-tio).
+			NetworkName *string `json:"network_name,omitempty"`
 
-			// The number of hosts the scanner is licensed to use.
-			Ips *int `json:"ips,omitempty"`
+			// The number of hosts that the scanner's analysis has discovered.
+			NumHosts *int `json:"num_hosts,omitempty"`
 
-			// The number of scanners the scanner is licensed to use.
-			Scanners *int `json:"scanners,omitempty"`
+			// The number of scans (tasks) the scanner is currently executing.
+			NumScans *int `json:"num_scans,omitempty"`
 
-			// The license type.
+			// The number of active sessions between the scanner and hosts.
+			NumSessions *int `json:"num_sessions,omitempty"`
+
+			// The number of active TCP sessions between the scanner and hosts.
+			NumTcpSessions *int `json:"num_tcp_sessions,omitempty"`
+
+			// The owner of the scanner.
+			Owner *string `json:"owner,omitempty"`
+
+			// The ID of the owner of the scanner.
+			OwnerId *int `json:"owner_id,omitempty"`
+
+			// The username of the owner of the scanner.
+			OwnerName *string `json:"owner_name,omitempty"`
+
+			// The UUID of the owner of the scanner.
+			OwnerUuid *string `json:"owner_uuid,omitempty"`
+
+			// The platform of the scanner.
+			Platform *string `json:"platform,omitempty"`
+
+			// Indicates whether the scanner is part of a scanner group ('true') or not ('false'). For more information about scanner groups, see the [Scanner Groups](ref:scanner-groups) endpoints.
+			Pool *bool `json:"pool,omitempty"`
+
+			// The registration code of the scanner.
+			RegistrationCode *string `json:"registration_code,omitempty"`
+
+			// The number of scans that the scanner is currently running.
+			ScanCount *int `json:"scan_count,omitempty"`
+
+			// Indicates whether anyone other than the scanner owner has explicit access to the scanner (`1`).
+			Shared *int `json:"shared,omitempty"`
+
+			// Always set to `service`.
+			Source *string `json:"source,omitempty"`
+
+			// The status of the scanner (`on` or `off`).
+			Status *string `json:"status,omitempty"`
+
+			// Indicates if the scanner supports remote logging.
+			SupportsRemoteLogs *bool `json:"supports_remote_logs,omitempty"`
+
+			// Indicates if the scanner supports web application scanning.
+			SupportsWebapp *bool `json:"supports_webapp,omitempty"`
+
+			// Equivalent to the `last_modification_date` attribute.
+			Timestamp *int `json:"timestamp,omitempty"`
+
+			// The type of scanner (`local`, `managed`, `managed_pvs`, `pool`, `remote`, or `webapp`).
 			Type *string `json:"type,omitempty"`
-		} `json:"license,omitempty"`
 
-		// Specifies whether you disabled (`0`) or enabled (`1`) the scanner. For more information, see the [PUT /scanners/{scanner_id}/link](ref:scanners-toggle-link-state) endpoint.
-		Linked *int `json:"linked,omitempty"`
+			// The backend build of Nessus that is running on the scanner.
+			UiBuild *string `json:"ui_build,omitempty"`
 
-		// The current plugin set on the scanner.
-		LoadedPluginSet *string `json:"loaded_plugin_set,omitempty"`
+			// The backend version of Nessus that is running on the scanner.
+			UiVersion *string `json:"ui_version,omitempty"`
 
-		// The user-defined name of the scanner.
-		Name *string `json:"name,omitempty"`
+			// The permissions you (the current user) have been assigned for the scanner. See [Permissions](doc:permissions).
+			UserPermissions *int `json:"user_permissions,omitempty"`
 
-		// The name of the network object associated with the scanner. For more information about network objects, see [Manage Networks](doc:manage-networks-tio).
-		NetworkName *string `json:"network_name,omitempty"`
-
-		// The number of hosts that the scanner's analysis has discovered.
-		NumHosts *int `json:"num_hosts,omitempty"`
-
-		// The number of scans (tasks) the scanner is currently executing.
-		NumScans *int `json:"num_scans,omitempty"`
-
-		// The number of active sessions between the scanner and hosts.
-		NumSessions *int `json:"num_sessions,omitempty"`
-
-		// The number of active TCP sessions between the scanner and hosts.
-		NumTcpSessions *int `json:"num_tcp_sessions,omitempty"`
-
-		// The owner of the scanner.
-		Owner *string `json:"owner,omitempty"`
-
-		// The ID of the owner of the scanner.
-		OwnerId *int `json:"owner_id,omitempty"`
-
-		// The username of the owner of the scanner.
-		OwnerName *string `json:"owner_name,omitempty"`
-
-		// The UUID of the owner of the scanner.
-		OwnerUuid *string `json:"owner_uuid,omitempty"`
-
-		// The platform of the scanner.
-		Platform *string `json:"platform,omitempty"`
-
-		// Indicates whether the scanner is part of a scanner group ('true') or not ('false'). For more information about scanner groups, see the [Scanner Groups](ref:scanner-groups) endpoints.
-		Pool *bool `json:"pool,omitempty"`
-
-		// The registration code of the scanner.
-		RegistrationCode *string `json:"registration_code,omitempty"`
-
-		// The number of scans that the scanner is currently running.
-		ScanCount *int `json:"scan_count,omitempty"`
-
-		// Indicates whether anyone other than the scanner owner has explicit access to the scanner (`1`).
-		Shared *bool `json:"shared,omitempty"`
-
-		// Always set to `service`.
-		Source *string `json:"source,omitempty"`
-
-		// The status of the scanner (`on` or `off`).
-		Status *string `json:"status,omitempty"`
-
-		// Indicates if the scanner supports remote logging.
-		SupportsRemoteLogs *bool `json:"supports_remote_logs,omitempty"`
-
-		// Indicates if the scanner supports web application scanning.
-		SupportsWebapp *bool `json:"supports_webapp,omitempty"`
-
-		// Equivalent to the `last_modification_date` attribute.
-		Timestamp *int `json:"timestamp,omitempty"`
-
-		// The type of scanner (`local`, `managed`, `managed_pvs`, `pool`, `remote`, or `webapp`).
-		Type *string `json:"type,omitempty"`
-
-		// The backend build of Nessus that is running on the scanner.
-		UiBuild *int `json:"ui_build,omitempty"`
-
-		// The backend version of Nessus that is running on the scanner.
-		UiVersion *string `json:"ui_version,omitempty"`
-
-		// The permissions you (the current user) have been assigned for the scanner. See [Permissions](doc:permissions).
-		UserPermissions *int `json:"user_permissions,omitempty"`
-
-		// The UUID of the scanner.
-		Uuid *string `json:"uuid,omitempty"`
+			// The UUID of the scanner.
+			Uuid *string `json:"uuid,omitempty"`
+		} `json:"scanners,omitempty"`
 	}
 }
 
@@ -20748,7 +20755,7 @@ type ScannersDetailsResponse struct {
 		Type *string `json:"type,omitempty"`
 
 		// The backend build of Nessus that is running on the scanner.
-		UiBuild *int `json:"ui_build,omitempty"`
+		UiBuild *string `json:"ui_build,omitempty"`
 
 		// The backend version of Nessus that is running on the scanner.
 		UiVersion *string `json:"ui_version,omitempty"`
@@ -20870,7 +20877,7 @@ type AgentGroupsListResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -20928,7 +20935,7 @@ type AgentGroupsCreateResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -21109,7 +21116,7 @@ type AgentGroupsDetailsResponse struct {
 		OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 		// The shared status of the agent group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The sharing permissions for the agent group.
 		UserPermissions *int `json:"user_permissions,omitempty"`
@@ -22563,7 +22570,7 @@ type ScansDetailsResponse struct {
 			HostId *int `json:"host_id,omitempty"`
 
 			// The index for the host.
-			HostIndex *string `json:"host_index,omitempty"`
+			HostIndex *int `json:"host_index,omitempty"`
 
 			// The name of the host.
 			Hostname *string `json:"hostname,omitempty"`
@@ -22692,7 +22699,7 @@ type ScansDetailsResponse struct {
 			HostId *int `json:"host_id,omitempty"`
 
 			// The index for the host.
-			HostIndex *string `json:"host_index,omitempty"`
+			HostIndex *int `json:"host_index,omitempty"`
 
 			// The name of the host.
 			Hostname *string `json:"hostname,omitempty"`
@@ -22799,13 +22806,13 @@ type ScansDetailsResponse struct {
 			ScanType *string `json:"scan_type,omitempty"`
 
 			// The scan's end time, if the scan is imported.
-			ScannerEnd *string `json:"scanner_end,omitempty"`
+			ScannerEnd *int `json:"scanner_end,omitempty"`
 
 			// The name of the scanner configured to run the scan.
 			ScannerName *string `json:"scanner_name,omitempty"`
 
 			// The scan's start time, if the scan is imported.
-			ScannerStart *string `json:"scanner_start,omitempty"`
+			ScannerStart *int `json:"scanner_start,omitempty"`
 
 			// The UUID for a specific instance in the scan schedule.
 			ScheduleUuid *string `json:"schedule_uuid,omitempty"`
@@ -24687,7 +24694,7 @@ type TargetGroupsListResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -24763,7 +24770,7 @@ type TargetGroupsCreateResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -24861,7 +24868,7 @@ type TargetGroupsDetailsResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -24937,7 +24944,7 @@ type TargetGroupsEditResponse struct {
 		OwnerId *int `json:"owner_id,omitempty"`
 
 		// The shared status of the group.
-		Shared *int `json:"shared,omitempty"`
+		Shared *bool `json:"shared,omitempty"`
 
 		// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 		Type *string `json:"type,omitempty"`
@@ -31545,36 +31552,38 @@ func ParseEditorListTemplatesResponse(rsp *http.Response) (*EditorListTemplatesR
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []struct {
-			// If `true`, the template is only available on the cloud.
-			CloudOnly *bool `json:"cloud_only,omitempty"`
+		var dest struct {
+			Templates []struct {
+				// If `true`, the template is only available on the cloud.
+				CloudOnly *bool `json:"cloud_only,omitempty"`
 
-			// The description of the template.
-			Desc *string `json:"desc,omitempty"`
+				// The description of the template.
+				Desc *string `json:"desc,omitempty"`
 
-			// If `true`, the template can only be used for agent scans.
-			IsAgent *bool `json:"is_agent,omitempty"`
+				// If `true`, the template can only be used for agent scans.
+				IsAgent *bool `json:"is_agent,omitempty"`
 
-			// If `true`, the template can be used for Web Application Scanning only.
-			IsWas *bool `json:"is_was,omitempty"`
+				// If `true`, the template can be used for Web Application Scanning only.
+				IsWas *bool `json:"is_was,omitempty"`
 
-			// If `true`, can only be used by manager.
-			ManagerOnly *bool `json:"manager_only,omitempty"`
+				// If `true`, can only be used by manager.
+				ManagerOnly *bool `json:"manager_only,omitempty"`
 
-			// The short name of the template.
-			Name *string `json:"name,omitempty"`
+				// The short name of the template.
+				Name *string `json:"name,omitempty"`
 
-			// If `true`, the template is only available for subscribers.
-			SubscriptionOnly *bool `json:"subscription_only,omitempty"`
+				// If `true`, the template is only available for subscribers.
+				SubscriptionOnly *bool `json:"subscription_only,omitempty"`
 
-			// The long name of the template.
-			Title *string `json:"title,omitempty"`
+				// The long name of the template.
+				Title *string `json:"title,omitempty"`
 
-			// If `true`, the template is not supported.
-			Unsupported *bool `json:"unsupported,omitempty"`
+				// If `true`, the template is not supported.
+				Unsupported *bool `json:"unsupported,omitempty"`
 
-			// The UUID for the template. Use this value to specify the template when creating scans and policies.
-			Uuid *string `json:"uuid,omitempty"`
+				// The UUID for the template. Use this value to specify the template when creating scans and policies.
+				Uuid *string `json:"uuid,omitempty"`
+			} `json:"templates,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -32648,37 +32657,40 @@ func ParseFoldersListResponse(rsp *http.Response) (*FoldersListResponse, error) 
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []struct {
-			// Indicates whether or not the folder is a custom folder:
-			//  - 1—User-created folder. You can rename or delete this folder.
-			//  - 0—System-created folder. You cannot rename or delete this folder.
-			Custom *int `json:"custom,omitempty"`
+		var dest struct {
+			Folders []struct {
+				// Indicates whether or not the folder is a custom folder:
+				//  - 1—User-created folder. You can rename or delete this folder.
+				//  - 0—System-created folder. You cannot rename or delete this folder.
+				Custom *int `json:"custom,omitempty"`
 
-			// Indicates whether or not the folder is the default:
-			//  - 1—The folder is the default.
-			//  - 0—The folder is not the default.
-			//
-			// The main folder is the default folder. You cannot change the default folder.
-			DefaultTag *int `json:"default_tag,omitempty"`
+				// Indicates whether or not the folder is the default:
+				//  - 1—The folder is the default.
+				//  - 0—The folder is not the default.
+				//
+				// The main folder is the default folder. You cannot change the default folder.
+				DefaultTag *int `json:"default_tag,omitempty"`
 
-			// The unique ID of the folder.
-			Id *int `json:"id,omitempty"`
+				// The unique ID of the folder.
+				Id *int `json:"id,omitempty"`
 
-			// The name of the folder. This value corresponds to the folder type as follows:
-			//  - main—My Scans
-			//  - trash—Trash
-			// -custom—user-defined string.
-			Name *string `json:"name,omitempty"`
+				// The name of the folder. This value corresponds to the folder type as follows:
+				//  - main—My Scans
+				//  - trash—Trash
+				// -custom—user-defined string.
+				Name *string `json:"name,omitempty"`
 
-			// The type of the folder:
-			// - main—Tenable-provided folder. Contains all scans that you create but do not assign to a custom folder, as well as any scans shared with you by other users. If you do not specify a scan folder when creating a scan, Tenable.io stores scans in this folder by default. This folder corresponds to the **My Scans** folder in the Tenable.io user interface.
-			//  - trash—Tenable-provided folder. Contains all scans that the current user has moved to the trash folder. Scans stored in the trash folder are automatically deleted after 30 days. This folder corresponds to the **Trash** folder in the Tenable.io user interface.
-			//  - custom—User-created folder. Contains scans as assigned by the current user. You can create custom folders to meet your organizational needs.
-			Type *string `json:"type,omitempty"`
+				// The type of the folder:
+				// - main—Tenable-provided folder. Contains all scans that you create but do not assign to a custom folder, as well as any scans shared with you by other users. If you do not specify a scan folder when creating a scan, Tenable.io stores scans in this folder by default. This folder corresponds to the **My Scans** folder in the Tenable.io user interface.
+				//  - trash—Tenable-provided folder. Contains all scans that the current user has moved to the trash folder. Scans stored in the trash folder are automatically deleted after 30 days. This folder corresponds to the **Trash** folder in the Tenable.io user interface.
+				//  - custom—User-created folder. Contains scans as assigned by the current user. You can create custom folders to meet your organizational needs.
+				Type *string `json:"type,omitempty"`
 
-			// The number of scans in the folder that the current user has not yet viewed in the Tenable.io user interface.
-			UnreadCount *int `json:"unread_count,omitempty"`
+				// The number of scans in the folder that the current user has not yet viewed in the Tenable.io user interface.
+				UnreadCount *int `json:"unread_count,omitempty"`
+			} "json:\"folders,omitempty\""
 		}
+
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -34053,7 +34065,7 @@ func ParsePoliciesListResponse(rsp *http.Response) (*PoliciesListResponse, error
 			OwnerId *string `json:"owner_id,omitempty"`
 
 			// The shared status of the policy (`1` if shared with users other than owner, `0` if not shared).
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The UUID for the Tenable-provided template used to create the policy.
 			TemplateUuid *string `json:"template_uuid,omitempty"`
@@ -34128,7 +34140,7 @@ func ParsePoliciesImportResponse(rsp *http.Response) (*PoliciesImportResponse, e
 			Owner                *string `json:"owner,omitempty"`
 			OwnerId              *int    `json:"owner_id,omitempty"`
 			Private              *int    `json:"private,omitempty"`
-			Shared               *int    `json:"shared,omitempty"`
+			Shared               *bool   `json:"shared,omitempty"`
 			TemplateUuid         *string `json:"template_uuid,omitempty"`
 			UserPermissions      *int    `json:"user_permissions,omitempty"`
 		}
@@ -34334,7 +34346,7 @@ func ParseScannerGroupsListResponse(rsp *http.Response) (*ScannerGroupsListRespo
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34411,7 +34423,7 @@ func ParseScannerGroupsCreateResponse(rsp *http.Response) (*ScannerGroupsCreateR
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34514,7 +34526,7 @@ func ParseScannerGroupsDetailsResponse(rsp *http.Response) (*ScannerGroupsDetail
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34591,7 +34603,7 @@ func ParseScannerGroupsEditResponse(rsp *http.Response) (*ScannerGroupsEditRespo
 			ScannerId *int `json:"scanner_id,omitempty"`
 
 			// The shared status of the scanner-group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The unique token for a scanner group.
 			Token *string `json:"token,omitempty"`
@@ -34859,7 +34871,7 @@ func ParseScannerGroupsListScannersResponse(rsp *http.Response) (*ScannerGroupsL
 			Type *string `json:"type,omitempty"`
 
 			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
+			UiBuild *string `json:"ui_build,omitempty"`
 
 			// The backend version of Nessus that is running on the scanner.
 			UiVersion *string `json:"ui_version,omitempty"`
@@ -34947,170 +34959,174 @@ func ParseScannersListResponse(rsp *http.Response) (*ScannersListResponse, error
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []struct {
-			// Specifies how often, in minutes, the scanner checks in with Tenable.io (Amazon Web Services scanners only).
-			AwsUpdateInterval *int `json:"aws_update_interval,omitempty"`
+		var dest struct {
+			Scanners []struct {
+				Challenge *string `json:"challenge,omitempty"`
 
-			// The Unix timestamp when the scanner was created. This attribute specifies the original creation date if the scanner was migrated.
-			CreationDate *int `json:"creation_date,omitempty"`
+				// Specifies how often, in minutes, the scanner checks in with Tenable.io (Amazon Web Services scanners only).
+				AwsUpdateInterval *int `json:"aws_update_interval,omitempty"`
 
-			// The scanner operating system distribution.
-			Distro *string `json:"distro,omitempty"`
+				// The Unix timestamp when the scanner was created. This attribute specifies the original creation date if the scanner was migrated.
+				CreationDate *int `json:"creation_date,omitempty"`
 
-			// The version of the scanner.
-			EngineVersion *string `json:"engine_version,omitempty"`
+				// The scanner operating system distribution.
+				Distro *string `json:"distro,omitempty"`
 
-			// Indicates whether the scanner belongs to a scanner group ('true') or not ('false').
-			Group *bool `json:"group,omitempty"`
+				// The version of the scanner.
+				EngineVersion *string `json:"engine_version,omitempty"`
 
-			// The hostname of the scanner.
-			Hostname *string `json:"hostname,omitempty"`
+				// Indicates whether the scanner belongs to a scanner group ('true') or not ('false').
+				Group *bool `json:"group,omitempty"`
 
-			// The unique ID of the scanner.
-			Id *int `json:"id,omitempty"`
+				// The hostname of the scanner.
+				Hostname *string `json:"hostname,omitempty"`
 
-			// A list of IP addresses associated with the scanner.
-			IpAddresses *[]string `json:"ip_addresses,omitempty"`
+				// The unique ID of the scanner.
+				Id *int `json:"id,omitempty"`
 
-			// The linking key, that is, the alpha-numeric sequence of characters you use to link a scanner to Tenable.io. For more information about linking a scanner to Tenable.io, see the [Tenable.io Vulnerability Management Guide](https://docs.tenable.com/tenableio/vulnerabilitymanagement/Content/Settings/LinkaSensor.htm).
-			Key *string `json:"key,omitempty"`
+				// A list of IP addresses associated with the scanner.
+				IpAddresses *[]string `json:"ip_addresses,omitempty"`
 
-			// The Unix timestamp when any of the scanner's tasks have provided its last update.
-			LastConnect *string `json:"last_connect,omitempty"`
+				// The linking key, that is, the alpha-numeric sequence of characters you use to link a scanner to Tenable.io. For more information about linking a scanner to Tenable.io, see the [Tenable.io Vulnerability Management Guide](https://docs.tenable.com/tenableio/vulnerabilitymanagement/Content/Settings/LinkaSensor.htm).
+				Key *string `json:"key,omitempty"`
 
-			// The Unix timestamp when the scanner was last modified.
-			LastModificationDate *int `json:"last_modification_date,omitempty"`
-			License              *struct {
-				// The number of agents the scanner is licensed to use.
-				Agents *int `json:"agents,omitempty"`
-				Apps   *struct {
-					Consec *struct {
-						// The activation code you used to enable the license. This value is present for standard licenses only.
-						ActivationCode *int `json:"activation_code,omitempty"`
+				// The Unix timestamp when any of the scanner's tasks have provided its last update.
+				LastConnect *string `json:"last_connect,omitempty"`
 
-						// The Unix timestamp when the license expires.
-						ExpirationDate *int `json:"expiration_date,omitempty"`
+				// The Unix timestamp when the scanner was last modified.
+				LastModificationDate *int `json:"last_modification_date,omitempty"`
+				License              *struct {
+					// The number of agents the scanner is licensed to use.
+					Agents *int `json:"agents,omitempty"`
+					Apps   *struct {
+						Consec *struct {
+							// The activation code you used to enable the license. This value is present for standard licenses only.
+							ActivationCode *int `json:"activation_code,omitempty"`
 
-						// The maximum memory (in GB) on the scanner allotted for the Tenable licensed application.
-						MaxGb *int `json:"max_gb,omitempty"`
+							// The Unix timestamp when the license expires.
+							ExpirationDate *int `json:"expiration_date,omitempty"`
 
-						// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
-						Mode *string `json:"mode,omitempty"`
+							// The maximum memory (in GB) on the scanner allotted for the Tenable licensed application.
+							MaxGb *int `json:"max_gb,omitempty"`
 
-						// Indicates that the scanner is licensed to perform Tenable.io Container Security scans.
+							// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
+							Mode *string `json:"mode,omitempty"`
+
+							// Indicates that the scanner is licensed to perform Tenable.io Container Security scans.
+							Type *string `json:"type,omitempty"`
+						} `json:"consec,omitempty"`
+
+						// The Tenable products licensed on the scanner.
 						Type *string `json:"type,omitempty"`
-					} `json:"consec,omitempty"`
+						Was  *struct {
+							// The activation code you used to enable the license. This value is present for standard licenses only.
+							ActivationCode *int `json:"activation_code,omitempty"`
 
-					// The Tenable products licensed on the scanner.
+							// The Unix timestamp when the license expires.
+							ExpirationDate *int `json:"expiration_date,omitempty"`
+
+							// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
+							Mode *string `json:"mode,omitempty"`
+
+							// Indicates that the scanner is licensed to perform Tenable.io Web Application Scanning scans.
+							Type *string `json:"type,omitempty"`
+
+							// The number of web assets which your license authorizes you to scan.
+							WebAssets *int `json:"web_assets,omitempty"`
+						} `json:"was,omitempty"`
+					} `json:"apps,omitempty"`
+
+					// The number of hosts the scanner is licensed to use.
+					Ips *int `json:"ips,omitempty"`
+
+					// The number of scanners the scanner is licensed to use.
+					Scanners *int `json:"scanners,omitempty"`
+
+					// The license type.
 					Type *string `json:"type,omitempty"`
-					Was  *struct {
-						// The activation code you used to enable the license. This value is present for standard licenses only.
-						ActivationCode *int `json:"activation_code,omitempty"`
+				} `json:"license,omitempty"`
 
-						// The Unix timestamp when the license expires.
-						ExpirationDate *int `json:"expiration_date,omitempty"`
+				// Specifies whether you disabled (`0`) or enabled (`1`) the scanner. For more information, see the [PUT /scanners/{scanner_id}/link](ref:scanners-toggle-link-state) endpoint.
+				Linked *int `json:"linked,omitempty"`
 
-						// Indicates whether the product license is an evaluation license (`eval`) or standard license (`standard`).
-						Mode *string `json:"mode,omitempty"`
+				// The current plugin set on the scanner.
+				LoadedPluginSet *string `json:"loaded_plugin_set,omitempty"`
 
-						// Indicates that the scanner is licensed to perform Tenable.io Web Application Scanning scans.
-						Type *string `json:"type,omitempty"`
+				// The user-defined name of the scanner.
+				Name *string `json:"name,omitempty"`
 
-						// The number of web assets which your license authorizes you to scan.
-						WebAssets *int `json:"web_assets,omitempty"`
-					} `json:"was,omitempty"`
-				} `json:"apps,omitempty"`
+				// The name of the network object associated with the scanner. For more information about network objects, see [Manage Networks](doc:manage-networks-tio).
+				NetworkName *string `json:"network_name,omitempty"`
 
-				// The number of hosts the scanner is licensed to use.
-				Ips *int `json:"ips,omitempty"`
+				// The number of hosts that the scanner's analysis has discovered.
+				NumHosts *int `json:"num_hosts,omitempty"`
 
-				// The number of scanners the scanner is licensed to use.
-				Scanners *int `json:"scanners,omitempty"`
+				// The number of scans (tasks) the scanner is currently executing.
+				NumScans *int `json:"num_scans,omitempty"`
 
-				// The license type.
+				// The number of active sessions between the scanner and hosts.
+				NumSessions *int `json:"num_sessions,omitempty"`
+
+				// The number of active TCP sessions between the scanner and hosts.
+				NumTcpSessions *int `json:"num_tcp_sessions,omitempty"`
+
+				// The owner of the scanner.
+				Owner *string `json:"owner,omitempty"`
+
+				// The ID of the owner of the scanner.
+				OwnerId *int `json:"owner_id,omitempty"`
+
+				// The username of the owner of the scanner.
+				OwnerName *string `json:"owner_name,omitempty"`
+
+				// The UUID of the owner of the scanner.
+				OwnerUuid *string `json:"owner_uuid,omitempty"`
+
+				// The platform of the scanner.
+				Platform *string `json:"platform,omitempty"`
+
+				// Indicates whether the scanner is part of a scanner group ('true') or not ('false'). For more information about scanner groups, see the [Scanner Groups](ref:scanner-groups) endpoints.
+				Pool *bool `json:"pool,omitempty"`
+
+				// The registration code of the scanner.
+				RegistrationCode *string `json:"registration_code,omitempty"`
+
+				// The number of scans that the scanner is currently running.
+				ScanCount *int `json:"scan_count,omitempty"`
+
+				// Indicates whether anyone other than the scanner owner has explicit access to the scanner (`1`).
+				Shared *int `json:"shared,omitempty"`
+
+				// Always set to `service`.
+				Source *string `json:"source,omitempty"`
+
+				// The status of the scanner (`on` or `off`).
+				Status *string `json:"status,omitempty"`
+
+				// Indicates if the scanner supports remote logging.
+				SupportsRemoteLogs *bool `json:"supports_remote_logs,omitempty"`
+
+				// Indicates if the scanner supports web application scanning.
+				SupportsWebapp *bool `json:"supports_webapp,omitempty"`
+
+				// Equivalent to the `last_modification_date` attribute.
+				Timestamp *int `json:"timestamp,omitempty"`
+
+				// The type of scanner (`local`, `managed`, `managed_pvs`, `pool`, `remote`, or `webapp`).
 				Type *string `json:"type,omitempty"`
-			} `json:"license,omitempty"`
 
-			// Specifies whether you disabled (`0`) or enabled (`1`) the scanner. For more information, see the [PUT /scanners/{scanner_id}/link](ref:scanners-toggle-link-state) endpoint.
-			Linked *int `json:"linked,omitempty"`
+				// The backend build of Nessus that is running on the scanner.
+				UiBuild *string `json:"ui_build,omitempty"`
 
-			// The current plugin set on the scanner.
-			LoadedPluginSet *string `json:"loaded_plugin_set,omitempty"`
+				// The backend version of Nessus that is running on the scanner.
+				UiVersion *string `json:"ui_version,omitempty"`
 
-			// The user-defined name of the scanner.
-			Name *string `json:"name,omitempty"`
+				// The permissions you (the current user) have been assigned for the scanner. See [Permissions](doc:permissions).
+				UserPermissions *int `json:"user_permissions,omitempty"`
 
-			// The name of the network object associated with the scanner. For more information about network objects, see [Manage Networks](doc:manage-networks-tio).
-			NetworkName *string `json:"network_name,omitempty"`
-
-			// The number of hosts that the scanner's analysis has discovered.
-			NumHosts *int `json:"num_hosts,omitempty"`
-
-			// The number of scans (tasks) the scanner is currently executing.
-			NumScans *int `json:"num_scans,omitempty"`
-
-			// The number of active sessions between the scanner and hosts.
-			NumSessions *int `json:"num_sessions,omitempty"`
-
-			// The number of active TCP sessions between the scanner and hosts.
-			NumTcpSessions *int `json:"num_tcp_sessions,omitempty"`
-
-			// The owner of the scanner.
-			Owner *string `json:"owner,omitempty"`
-
-			// The ID of the owner of the scanner.
-			OwnerId *int `json:"owner_id,omitempty"`
-
-			// The username of the owner of the scanner.
-			OwnerName *string `json:"owner_name,omitempty"`
-
-			// The UUID of the owner of the scanner.
-			OwnerUuid *string `json:"owner_uuid,omitempty"`
-
-			// The platform of the scanner.
-			Platform *string `json:"platform,omitempty"`
-
-			// Indicates whether the scanner is part of a scanner group ('true') or not ('false'). For more information about scanner groups, see the [Scanner Groups](ref:scanner-groups) endpoints.
-			Pool *bool `json:"pool,omitempty"`
-
-			// The registration code of the scanner.
-			RegistrationCode *string `json:"registration_code,omitempty"`
-
-			// The number of scans that the scanner is currently running.
-			ScanCount *int `json:"scan_count,omitempty"`
-
-			// Indicates whether anyone other than the scanner owner has explicit access to the scanner (`1`).
-			Shared *bool `json:"shared,omitempty"`
-
-			// Always set to `service`.
-			Source *string `json:"source,omitempty"`
-
-			// The status of the scanner (`on` or `off`).
-			Status *string `json:"status,omitempty"`
-
-			// Indicates if the scanner supports remote logging.
-			SupportsRemoteLogs *bool `json:"supports_remote_logs,omitempty"`
-
-			// Indicates if the scanner supports web application scanning.
-			SupportsWebapp *bool `json:"supports_webapp,omitempty"`
-
-			// Equivalent to the `last_modification_date` attribute.
-			Timestamp *int `json:"timestamp,omitempty"`
-
-			// The type of scanner (`local`, `managed`, `managed_pvs`, `pool`, `remote`, or `webapp`).
-			Type *string `json:"type,omitempty"`
-
-			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
-
-			// The backend version of Nessus that is running on the scanner.
-			UiVersion *string `json:"ui_version,omitempty"`
-
-			// The permissions you (the current user) have been assigned for the scanner. See [Permissions](doc:permissions).
-			UserPermissions *int `json:"user_permissions,omitempty"`
-
-			// The UUID of the scanner.
-			Uuid *string `json:"uuid,omitempty"`
+				// The UUID of the scanner.
+				Uuid *string `json:"uuid,omitempty"`
+			} `json:"scanners,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -35821,7 +35837,7 @@ func ParseScannersDetailsResponse(rsp *http.Response) (*ScannersDetailsResponse,
 			Type *string `json:"type,omitempty"`
 
 			// The backend build of Nessus that is running on the scanner.
-			UiBuild *int `json:"ui_build,omitempty"`
+			UiBuild *string `json:"ui_build,omitempty"`
 
 			// The backend version of Nessus that is running on the scanner.
 			UiVersion *string `json:"ui_version,omitempty"`
@@ -35951,7 +35967,7 @@ func ParseAgentGroupsListResponse(rsp *http.Response) (*AgentGroupsListResponse,
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -36013,7 +36029,7 @@ func ParseAgentGroupsCreateResponse(rsp *http.Response) (*AgentGroupsCreateRespo
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -36212,7 +36228,7 @@ func ParseAgentGroupsDetailsResponse(rsp *http.Response) (*AgentGroupsDetailsRes
 			OwnerUuid *string `json:"owner_uuid,omitempty"`
 
 			// The shared status of the agent group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The sharing permissions for the agent group.
 			UserPermissions *int `json:"user_permissions,omitempty"`
@@ -37798,7 +37814,7 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				HostId *int `json:"host_id,omitempty"`
 
 				// The index for the host.
-				HostIndex *string `json:"host_index,omitempty"`
+				HostIndex *int `json:"host_index,omitempty"`
 
 				// The name of the host.
 				Hostname *string `json:"hostname,omitempty"`
@@ -37927,7 +37943,7 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				HostId *int `json:"host_id,omitempty"`
 
 				// The index for the host.
-				HostIndex *string `json:"host_index,omitempty"`
+				HostIndex *int `json:"host_index,omitempty"`
 
 				// The name of the host.
 				Hostname *string `json:"hostname,omitempty"`
@@ -38034,13 +38050,13 @@ func ParseScansDetailsResponse(rsp *http.Response) (*ScansDetailsResponse, error
 				ScanType *string `json:"scan_type,omitempty"`
 
 				// The scan's end time, if the scan is imported.
-				ScannerEnd *string `json:"scanner_end,omitempty"`
+				ScannerEnd *int `json:"scanner_end,omitempty"`
 
 				// The name of the scanner configured to run the scan.
 				ScannerName *string `json:"scanner_name,omitempty"`
 
 				// The scan's start time, if the scan is imported.
-				ScannerStart *string `json:"scanner_start,omitempty"`
+				ScannerStart *int `json:"scanner_start,omitempty"`
 
 				// The UUID for a specific instance in the scan schedule.
 				ScheduleUuid *string `json:"schedule_uuid,omitempty"`
@@ -40126,7 +40142,7 @@ func ParseTargetGroupsListResponse(rsp *http.Response) (*TargetGroupsListRespons
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40206,7 +40222,7 @@ func ParseTargetGroupsCreateResponse(rsp *http.Response) (*TargetGroupsCreateRes
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40312,7 +40328,7 @@ func ParseTargetGroupsDetailsResponse(rsp *http.Response) (*TargetGroupsDetailsR
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
@@ -40392,7 +40408,7 @@ func ParseTargetGroupsEditResponse(rsp *http.Response) (*TargetGroupsEditRespons
 			OwnerId *int `json:"owner_id,omitempty"`
 
 			// The shared status of the group.
-			Shared *int `json:"shared,omitempty"`
+			Shared *bool `json:"shared,omitempty"`
 
 			// The group type (user or system). Note that the system group type is deprecated. Tenable recommends that you create only user target groups.
 			Type *string `json:"type,omitempty"`
